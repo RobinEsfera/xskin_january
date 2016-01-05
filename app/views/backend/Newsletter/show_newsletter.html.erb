@@ -1,0 +1,66 @@
+
+      <!-- xskin dashboard design start from here -->
+      <div class="xskin-dshboard-design">
+        <h3>Detail of Newsletter "#<%= @newsletter.id %>"</h3>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="/backend/newsletter">Newsletters</a></li>
+            <li class="current">Show</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title active"><a href="show_newsletter"><i class="fa fa-camera"></i> Show</a></li>
+            <li class="tab-title"><a href="edit_newsletter"><i class="fa fa-pencil"></i> Edit</a></li>
+            <li class="tab-title">
+              <%= link_to "<i class='fa fa-trash'></i> Delete".html_safe, "delete_newsletter", method: :delete, :title => "Delete", data: { confirm: 'Are you confirm you want to delete this?' } %>
+            </li>
+          </ul>
+
+          <div class="tabs-content">
+
+  <!-- user information Start from here -->
+             <div id="Show" class="content active">
+                <div class="xskin-user-basic-information">
+                  <div class="user-info">
+                    <h4>Basic information</h4>
+
+                    <div class="medium-4 left">
+                      <span class="type-info">
+                        Email
+                      </span>
+                    </div>
+                    <div class="medium-8 left">
+                      <span class="user-infor">
+                        <%= (!@newsletter.nil?) ? @newsletter.email : "" %>
+                      </span>
+                    </div>
+
+
+                    <div class="medium-4 left">
+                      <span class="type-info">
+                        Created At
+                      </span>
+                    </div>
+                    <div class="medium-8 left">
+                      <span class="user-infor">
+                        <%= (!@newsletter.nil?) ? @newsletter.created_at.to_formatted_s(:long) : "" %>
+                      </span>
+                    </div>
+
+                  </div><!-- /user-info -->
+                </div><!-- basic information close -->
+
+                <div class="clearfix"></div>
+             </div>
+             <!-- user information close from here -->
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->
+

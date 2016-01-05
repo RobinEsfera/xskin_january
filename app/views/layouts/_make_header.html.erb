@@ -1,0 +1,54 @@
+<%= render"layouts/currency" %>       
+        <header>
+        <div class="large-12">
+        <div class="large-6 left">
+         <div class="back-to-xskin-website">
+        <a href="<%= demo_path %>" title="Go back"><i class="fa fa-angle-left"></i> &nbsp;Go back to website</a>
+      </div>
+      </div>
+       <div class="large-6 right">
+        <div class="xskin-login text-right hide-for-small-only">
+          <ul class="xskin-login-language">
+          <li class="hide-for-small-only"><a data-reveal-id="xskin-currencyModal" href="#">
+          <% if cookies[:currency] %>
+            <%= cookies[:currency] %>
+          <% else %>
+          CAD ($)
+          <% end %>
+          </a></li>
+                 <% if user_signed_in? %>
+      <li class="login last">
+            <%=link_to"MyAccount",edit_user_registration_path %>
+            </li>
+            <li class="login last">
+            <%=link_to"Logout",destroy_user_session_path,:method=>"delete"  %>
+            </li>
+            <li class="login last">
+            <%=link_to"Cart","javascript:void(0);"  %>
+            </li>
+      <% else %>      
+          <li class="login last">
+          <%=link_to"LOGIN",new_user_session_path, :title=>"Login to start"  %>
+          </li>
+      <% end %> 
+          </ul>
+        </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="xskin-menu-with-logo make-your-case">
+            <div class="large-12 medium-12 columns text-center">
+            <div class="xskin-logo">
+              <a href="<%=demo_path  %>">
+              <%=image_tag"Xskin-logo.png",:title=>"xskin" %>
+              </a>
+              </div>
+              <div class="show-for-small-only mobile-search">
+                <input type="submit" value="Send" />
+              </div>
+            </div>
+            <!-- Xskin-logo close from here -->
+                </div>
+                        </div>
+                          <!-- row close from here -->
+                        </header>

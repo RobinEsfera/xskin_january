@@ -1,0 +1,153 @@
+<% @store_category_options = StoreCategory.all.map{|u| [ u.name, u.id ] } 
+  @store_sub_category_options = StoreSubCategory.all.map{|u| [ u.name, u.id ] } 
+  @device_options = Device.all.map{|u| [ u.name, u.id ] } 
+  @sub_device_options = SubDevice.all.map{|u| [ u.name, u.id ] } 
+  @user_options = User.all.map{|u| [ u.name, u.id ] } 
+  @case_options = Case.all.map{|u| [ u.name, u.id ] } 
+  @layout_options = Layout.all.map{|u| [ u.name, u.id ] } 
+  @brand_options = Brand.all.map{|u| [ u.name, u.id ] } 
+  @product_color_options = ProductColor.all.map{|u| [ u.name, u.id ] } 
+%>
+      <!-- xskin dashboard design start from here -->
+      <div class="xskin-dshboard-design">
+        <h3>New Product</h3>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="product">Products</a></li>
+            <li class="current">New</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title"><a href="product"><i class="fa fa-list"></i> List</a></li>
+            <li class="tab-title active"><a href="add_user"><i class="fa fa-user-plus"></i> Add new</a></li>
+          </ul>
+
+          <div class="tabs-content">
+
+            <!-- add new tab start from here -->
+             <div id="AddNew" class="content active">
+                <div class="xskin-add-new-user">
+
+                  <%= form_for @product, url: {action: "add_product"}, html: {class: "nifty_form",:method=>:post,:multipart=> true} do |f| %>
+                  <div class="medium-12 columns">
+                    <div class="medium-6 columns">
+                      <%= f.label :name %>
+                      <%= f.text_field :name %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :User %>
+                      <%= f.select(:user_id, options_for_select(@user_options), {:include_blank => 'Select..'}) %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :Store_category %>
+                      <%= f.select(:store_category_id, options_for_select(@store_category_options), {:include_blank => 'Select..'}, :class => "ajax_store_category_id") %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :Store_sub_category %>
+                      <%= f.select(:store_sub_category_id, options_for_select(@store_sub_category_options), {:include_blank => 'Select..'}, :class => "ajax_store_sub_category_id") %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :device %>
+                      <%= f.select(:device_id, options_for_select(@device_options), {:include_blank => 'Select..'}, :class => "ajax_device_id") %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :Sub_device %>
+                      <%= f.select(:sub_device_id, options_for_select(@sub_device_options), {:include_blank => 'Select..'}, :class => "ajax_sub_device_id") %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :case %>
+                      <%= f.select(:case_id, options_for_select(@case_options), {:include_blank => 'Select..'}) %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :layout %>
+                      <%= f.select(:layout_id, options_for_select(@layout_options), {:include_blank => 'Select..'}) %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :brand %>
+                      <%= f.select(:brand_id, options_for_select(@layout_options), {:include_blank => 'Select..'}) %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :price %>
+                      <%= f.text_field :price %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :description %>
+                      <%= f.text_area :description %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :tag %>
+                      <%= f.text_field :tag %>
+                    </div>
+
+                    <div class="medium-12 columns">
+                        <label>
+                        <%= f.check_box :is_active, {}, true, false %>
+                            Is Active?
+                        </label>
+                    </div>
+                    </div>
+                    <div class="medium-12 columns">
+                      <div class="before-check columns"><h5>Product Variations
+                      <span class="add_variation button" style="float:right; margin:0px;">Add new variation</span></h5></div>
+                    </div>
+<div id="product-variation-form">                    
+    <div class="medium-4 columns left">
+      <div class="product_variations">
+        <div class="medium-12 columns">
+          <%= label_tag :image %>
+          <%= file_field_tag "image[]", :required => true %>
+        </div>
+        <div class="medium-12 columns left">
+          <%= label_tag :product_color %>
+          <%= select_tag "product_color_id[]", options_for_select(@product_color_options, :required => true), {:include_blank => 'Select..'} %>
+        </div>
+        <div class="medium-12 columns">
+            <label>
+            <%= check_box_tag "active[]", true, true %>
+                Is Active?
+            </label>
+        </div>
+      </div>
+    </div>
+</div>
+                    <div class="medium-12 columns">
+                    <div class="xskin-action">
+                      <%= f.submit :class => 'button'  %>
+                    </div>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+             <!-- add new tab close from here -->
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->
+
+<div id="product-variation-extra" style="display:none;">
+  <div class="medium-4 columns left">
+    <div class="product_variations">
+      <div class="medium-12 columns">
+        <%= label_tag :image %>
+        <%= file_field_tag "image[]", :required => true %>
+      </div>
+      <div class="medium-12 columns left">
+        <%= label_tag :product_color %>
+        <%= select_tag "product_color_id[]", options_for_select(@product_color_options), {:include_blank => 'Select..'} %>
+      </div>
+      <div class="medium-12 columns">
+          <label>
+          <%= check_box_tag "active[]", true, true %>
+              Is Active?
+          </label>
+      </div>
+    </div>
+  </div>
+</div>

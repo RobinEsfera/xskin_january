@@ -1,0 +1,16 @@
+<ul class="xskin-user-list-categories">
+	<li class="current1">
+	<%=link_to"My profile", edit_user_registration_path,:class => active_class?(edit_user_registration_path)  %>        
+	</li>   
+	<li><%= link_to"My gallery", gallery_path,:class => active_class?(gallery_path) %>
+	</li>
+	<li><%= link_to"Track Order", track_path,:class => active_class?(track_path) %>
+	</li>
+	<li><%= link_to"invite friend", invite_path,:class => active_class?(invite_path) %>
+	</li>
+	<li><%= link_to"promotion", promotion_path,:class => active_class?(promotion_path) %>
+	</li>
+	<li><%= link_to"wishlist", wishlist_path,:class => active_class?(wishlist_path) %>
+	</li>
+	<li><%=link_to"Log out",destroy_user_session_path,:method=>"delete"  %></li>
+</ul>

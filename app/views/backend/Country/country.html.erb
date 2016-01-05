@@ -1,0 +1,120 @@
+
+    <!-- xskin dashboard design start from here -->
+    <div class="xskin-dshboard-design">
+        <h3>List of Countries</h3>
+    <%= render "layouts/admin/messages" %>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li class="current">Countries</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title active"><a href="country"><i class="fa fa-list"></i> List</a></li>
+            <li class="tab-title"><a href="add_country"><i class="fa fa-user-plus"></i> Add new</a></li>
+          </ul>
+
+          <div class="tabs-content">
+
+          <!-- list tab start from here -->
+            <div id="List" class="content active">
+             <div class="xskin-user-entry">
+                 <table cellpadding="0" cellspacing="0" width="100%;" id="device" class="display">
+                     <thead>
+                         <tr>
+                             <th><input type="checkbox" /></th>
+                             <th>Id</th>
+                             <th>Name</th>
+                             <th>Code</th>
+                             <th>Created at</th>
+                             <th class="last shrink" style="width:10%;">ACTION</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                      <% if @countries.any? %>
+                        <% @countries.each do |countries| %>
+                         <tr>
+                             <td><input type="checkbox" /></td>
+                             <td><%= countries.id %></td>
+                             <td><%= countries.name %></td>
+                             <td><%= countries.code %></td>
+                             <td><%= countries.created_at.to_formatted_s(:long) %></td>
+                             <td class="last links">
+                                 <ul>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-info-circle'></i>".html_safe, "#{countries.id}/show_country", :title => "Show" %>
+                                     </li>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, "#{countries.id}/edit_country", :title => "Edit" %>
+                                     </li>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-close'></i>".html_safe, "/backend/#{countries.id}/delete_country", method: :delete, :title => "Delete", data: { confirm: 'Are you confirm you want to delete this?' } %>
+                                     </li>
+                                 </ul>
+                             </td>
+                         </tr>
+                        <% end %>
+                      <% end %>
+                     </tbody>
+                 </table>
+             </div>
+             <div class="clearfix"></div>
+            </div>
+            <!-- list tab close from here -->
+
+            <!-- add new tab start from here -->
+             <div id="AddNew" class="content">
+                <div class="xskin-add-new-user">
+                    <form class="new-user-ad">
+                        <div class="medium-12 columns">
+                            <p>Email</p>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="medium-6 columns">
+                            <p>Password</p>
+                            <input type="password" class="form-control" />
+                        </div>
+                        <div class="medium-6 columns">
+                            <p>Password confirmation</p>
+                            <input type="password" class="form-control" />
+                        </div>
+                        <div class="medium-6 columns">
+                            <p>Name</p>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="medium-6 columns">
+                            <p>Email2</p>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="medium-12 columns">
+                            <label>
+                                <input type="checkbox" /> Lorem ipsum dolor sit amet, consectetur
+                            </label>
+                        </div>
+                        <div class="xskin-action">
+                            <a href="#" class="button">Save</a>
+                            <a href="#" class="button cancel">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+             <!-- add new tab close from here -->
+
+
+             <div id="Export" class="content">
+             export
+             </div>
+             <div id="panel55" class="content">
+             import
+             </div>
+
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->

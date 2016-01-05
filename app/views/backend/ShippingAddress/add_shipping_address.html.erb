@@ -1,0 +1,79 @@
+<% @country_options = Country.all.map{|u| [ u.name, u.id ] } 
+  @user_options = User.all.map{|u| [ u.name, u.id ] } 
+%>
+      <!-- xskin dashboard design start from here -->
+      <div class="xskin-dshboard-design">
+        <h3>List of Users</h3>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="shipping_address">Shipping Address</a></li>
+            <li class="current">New</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title"><a href="shipping_address"><i class="fa fa-list"></i> List</a></li>
+            <li class="tab-title active"><a href="add_user"><i class="fa fa-user-plus"></i> Add new</a></li>
+          </ul>
+
+          <div class="tabs-content">
+
+            <!-- add new tab start from here -->
+             <div id="AddNew" class="content active">
+                <div class="xskin-add-new-user">
+
+                  <%= form_for @shipping_address, url: {action: "add_shipping_address"}, html: {class: "nifty_form"} do |f| %>
+                    <div class="medium-6 columns left">
+                      <%= f.label :User %>
+                      <%= f.select(:user_id, options_for_select(@user_options), {:include_blank => 'Select..'}) %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :first_name %>
+                      <%= f.text_field :first_name %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :last_name %>
+                      <%= f.text_field :last_name %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :address %>
+                      <%= f.text_area :address1 %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :Country %>
+                      <%= f.select(:country_id, options_for_select(@country_options), {:include_blank => 'Select Country'}) %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :City %>
+                      <%= f.text_field :city %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :State %>
+                      <%= f.text_field :state %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :Pincode %>
+                      <%= f.text_field :pincode %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :Mobile %>
+                      <%= f.text_field :mobile %>
+                    </div>
+                    <div class="xskin-action">
+                      <%= f.submit :class => 'button'  %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+             <!-- add new tab close from here -->
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->
+

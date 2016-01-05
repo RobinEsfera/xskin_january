@@ -1,0 +1,46 @@
+<section>
+  <div class="row">
+    <div class="xskin-user-profile">
+    <ul class="breadcrumbs show-for-small-only mobile-only">
+        <li><a href="#">MEMBERSHIP</a></li>
+        <li class="current"><a href="#">My Profile</a></li>
+      </ul>
+    <h4 class="supprots">Support</h4>
+      <div class="medium-4 small-12 left hide-for-small-only">
+      <%= render"layouts/support_menu" %>
+       </div>
+      <div class="medium-8 small-12 left">
+        <div class="xskin-user-profile-data xskin-rules">
+        <h3>faqs</h3>
+
+<% for category in @faqs_cat do %>
+          <div class="xskin-faqs-item">
+            <span><%= category.name %></span>
+            <div class="clearfix"></div>
+            <ul>
+            <% faq=Faq.where(:faq_category_id=>category.id,:is_active=>true) 
+            for faqs in faq do
+            %>
+            <li>
+              <%= faqs.question %>
+              <a href="javascript:void(0);" class="action-answer" title="Click for answer">↓</a>
+              <div class="answer-the-question">
+                <strong>Ans. </strong>
+                <%= faqs.answer %>
+              </div>
+              </li>
+              <% end %>
+            </ul>
+       </div>
+        <% end %>  
+        <!-- faqs item close from here -->
+
+          <p>None of these FAQs answered your question(s)? For more inquiries, please contact us at ___@_____ or give us a call at (604) 436 – 1800. You can also contact us on Facebook (www.facebook.com/goxskin).</p>
+
+          
+        <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

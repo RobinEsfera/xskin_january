@@ -1,0 +1,48 @@
+<section class="xskin-my-gallery">
+<div class="row">
+<h4 class="shopping-cart hide-for-small-only">Hi! <%= current_user.name %></h4>
+<div class="medium-4 small-12 left">
+<%= render"layouts/user_menu" %>
+        </div>
+<div class="medium-8 small-12 left">
+    <% if @wishlist.any? %>
+    <div class="xskin-user-profile-data">
+
+    <!-- wishlist product start from here -->
+        <% @wishlist.each do |wishlist| 
+            @product_variation = ProductVariation.where(:id => wishlist.product_variation_id).first
+            @product_color = ProductColor.where(:id => @product_variation.product_color_id).first
+            @product = Product.find(@product_variation.product_id) %>
+            
+        	<div class="xskin-wish-listz">
+        		<div class="small-4 columns">
+        			<div class="xskin-wish-list">
+                        <%= image_tag(@product_variation.image.url) %>
+        			</div>
+        		</div>
+        		<div class="small-8 columns">
+        			<div class="wishlist-product-detail">
+        				<h6><%= @product.name %></h6>
+        				<p>&dollar;<%= @product.price %></p>
+        				<a href="/cart/<%= wishlist.product_id %>" class="button">Buy Now</a>
+        				<div class="wish-list-date">
+        					<%= wishlist.created_at.to_formatted_s(:long) %>
+        				</div>
+        				<div class="cross-wishlist">
+        					<a href="/wishlist/clear?id=<%= wishlist.id %>"><i class="fa fa-close"></i> Remove</a>
+        				</div>
+        			</div>
+    			</div>
+    		</div>
+        <% end %>
+
+    </div>
+    <% else %>
+        <div class="no-data">There is no product in your wishlist.</div>
+    <% end %>
+    	<!-- wishlist product close from here -->   	
+
+</div>
+    <!-- medium-8 small-12 left -->
+</div>
+</section>

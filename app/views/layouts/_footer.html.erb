@@ -1,0 +1,103 @@
+<footer>
+      <div class="row">
+
+      <div class="small-12 show-for-small-only left medium-4">
+          <div class="play-store">
+            <a href="#"><%=image_tag"app-store.png" %></a>
+            <a href="#"><%=image_tag"google-play-store.png" %></a>
+          </div>
+
+          <div class="social-icon">
+            <ul>
+              <li><a href="https://www.facebook.com/goxskin"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+              <li><a href="#"><i class="fa fa-weixin"></i></a></li>
+              <li><a href="#"><%=image_tag"vimeo.png" %></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+          </div>
+          <!-- Social icon close from here -->
+
+          <div class="newsletter">
+            <%=form_for(:newsletter,:url=>"page/newsletter_submit") do |f| %>
+            <div class="field">
+            <%=f.label"newsletter" %>
+            <%=f.text_field"email",:placeholder=>"Subscribe to our blog." %>              
+              </div>
+              <div class="submit">
+              <%=f.submit"submit",:class=>"smooth" %>
+              </div>
+            <% end %>
+          </div> <!-- .newsletter -->
+
+        </div>
+        <!-- app store close from here -->
+
+
+        <div class="large-3 small-6 left medium-4">
+          <h4>products</h4>
+          <ul class="xskin-footer-links">
+            <li><%= link_to"Gift Card",gift_path %></li>
+            <li><%=link_to"iphone 6 case",make_path %></li>
+            <li><%=link_to"iphone 5 case",make_path %></li>
+            <li><%=link_to"iphone 4 case",make_path %></li>
+            <li><%=link_to"galaxy s5 case",make_path %></li>
+            <li><%=link_to"galaxy s4 case",make_path %></li>
+            <li><%=link_to"galaxy s3 case",make_path %></li>
+            <li><%=link_to"ipad 3/4 case",make_path %></li>
+            <li><%=link_to"all products",make_path %></li>
+          </ul>
+        </div>
+        <div class="large-3 small-6 left medium-4">
+          <h4>support</h4>
+          <ul class="xskin-footer-links">
+            <li><%=link_to"Faq",faq_path %></li>
+            <li><a href="#">subscription</a></li>
+            <li><%=link_to"privacy policy",privacy_path%></li>
+            <li><%=link_to"term and conditions", terms_path%></li>
+            <li><%= link_to"affiliate",affiliate_path %></li>
+            <li><%= link_to"testimonial",testimonial_path %></li>
+            <li><%= link_to"developer",developer_path %></li>
+            <li><%= link_to"careers",careers_path %></li>
+            <li><%= link_to"spotting",spotting_path %></li>
+          </ul>
+        </div>
+        <div class="large-6 left medium-4 hide-for-small-only">
+          <div class="play-store">
+            <a href="#"><%=image_tag"app-store.png" %></a>
+            <a href="#"><%=image_tag"google-play-store.png"%></a>
+          </div>
+
+          <div class="social-icon">
+            <ul>
+              <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="#"><i class="fa fa-weibo"></i></a></li>
+              <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+              <li><a href="#"><i class="fa fa-weixin"></i></a></li>
+              <li><a href="#"><%=image_tag"vimeo.png"%></a></li>
+              <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            </ul>
+          </div>
+          <!-- Social icon close from here -->
+
+          <div class="newsletter">
+            <%=form_for(:newsletter,:url=>"page/newsletter_submit") do |f| %>
+            <div class="field">
+            <%=f.label"newsletter" %>
+            <%=f.text_field"email",:placeholder=>"Subscribe to our blog.", :required=>"",:title=>"Please enter email."%>              
+              </div>
+              <div class="submit">
+              <%=f.submit"submit",:class=>"smooth" %>
+              </div>
+            <% end %>
+          </div> <!-- .newsletter -->
+
+        </div>
+        <!-- app store close from here -->
+      </div>
+    </footer>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  app_icon: MyString
+  dowanload_button_text: MyString
+  background: MyString
+
+two:
+  title: MyString
+  app_icon: MyString
+  dowanload_button_text: MyString
+  background: MyString

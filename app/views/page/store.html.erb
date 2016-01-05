@@ -1,0 +1,264 @@
+<section>
+<div class="xskin-store-page-slider">
+  <div class="row">
+    <div class="medium-12">
+    <div class="xskin-slider">
+      <div class="xskin-slide">
+      <%=image_tag"store-slider-image.jpg" %>
+      </div>
+
+      <div class="xskin-slide-caption">
+        <div class="caption">
+          <div class="make-your-own-skin">
+            <div class="slide-cap">
+              <h2>iPhone 6</h2>
+              <a class="button" href="#">shop now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- slide caption close from here -->
+    </div>
+  </div>
+  </div>
+  </div>
+  <!-- store page slider close from here -->
+</section>
+<% @store_cat_first=StoreCategory.first
+@store_sub_cat_first=StoreSubCategory.where(:store_category=>@store_cat_first.id).first %>
+<% 
+  @product_variation = Product.joins('Left JOIN product_variations ON products.id = product_variations.product_id').select("product_variations.*").where('products.store_category_id' => @store_cat_first.id).limit(4)
+%>
+
+<section>
+  <div class="row">
+  <div class="xskin-products-store">
+    <div class="large-6 left no-margin">
+      <div class="xskin-product-item">
+        <h3><a class="xskin-store" href="/store_category?cat=<%= @store_cat_first.id %>">COLLECTION</a></h3>
+        <% if @product_variation.any? %>
+          <% @product_variation.each do |product_variation| %>
+          <% product_var = ProductVariation.find(product_variation.id) %>
+          <div class="medium-6 left small-12">
+                <div class="iphone-6">
+                  <div class="">
+                    <a href="/product?product=<%= product_variation.id %>">
+                    <%= image_tag(product_var.image.url(:medium)) %>
+                  </a>
+                  </div>
+                  <div class="masking smooth">
+                    <div class="xskin-add-to-cart">
+                      <div class="add-to-cart">
+                      <a href="/wishlist/<%= product_variation.id %>"><span class="smooth cart">
+                        <%= image_tag"zoom.png" %>
+                        </span></a>
+                        <a href="/cart/<%= product_variation.id %>"><span class="smooth cart your-cart">
+                        <%= image_tag"add-to-cart.png" %>
+                        </span></a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+          </div>
+            <!-- popular item close from here -->
+          <% end %>
+        <% else %>
+          <div class="no-data">Latest products are coming soon!!</div>
+        <% end %>
+
+          <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- popular items close from here -->
+
+<% @store_cat_second=StoreCategory.second
+@store_sub_cat_second=StoreSubCategory.where(:store_category=>@store_cat_second.id).first %>
+
+<% 
+  @product_variation_sec = Product.joins('Left JOIN product_variations ON products.id = product_variations.product_id').select("product_variations.*").where('products.store_category_id' => @store_cat_second.id).limit(4)
+%>
+    <div class="large-6 left no-margin">
+      <div class="xskin-product-item">
+        <h3><a class="xskin-store" href="/store_category?cat=<%= @store_cat_second.id %>">CATEGORIES</a></h3>
+        <% if @product_variation_sec.any? %>
+          <% @product_variation_sec.each do |product_variation_sec| %>
+          <% product_var_sec = ProductVariation.find(product_variation_sec.id) %>
+          <div class="medium-6 left small-12">
+                <div class="iphone-6">
+                  <div class="">
+                    <a href="/product?product=<%= product_variation_sec.id %>">
+                    <%= image_tag(product_var_sec.image.url(:medium)) %>
+                  </a>
+                  </div>
+                  <div class="masking smooth">
+                    <div class="xskin-add-to-cart">
+                      <div class="add-to-cart">
+                      <a href="/wishlist/<%= product_variation_sec.id %>"><span class="smooth cart">
+                        <%= image_tag"zoom.png" %>
+                        </span></a>
+                        <a href="/cart/<%= product_variation_sec.id %>"><span class="smooth cart your-cart">
+                        <%= image_tag"add-to-cart.png" %>
+                        </span></a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+          </div>
+            <!-- popular item close from here -->
+          <% end %>
+        <% else %>
+          <div class="no-data">Latest products are coming soon!!</div>
+        <% end %>
+
+
+          <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- popular items close from here -->
+
+
+    
+
+
+    <div class="clearfix"></div>
+  </div>
+  <!-- product store close from here -->
+
+<% @store_cat_third=StoreCategory.third
+@store_sub_cat_third=StoreSubCategory.where(:store_category=>@store_cat_third.id).first %>
+
+<% 
+  @product_variation_third = Product.joins('Left JOIN product_variations ON products.id = product_variations.product_id').select("product_variations.*").where('products.store_category_id' => @store_cat_third.id).limit(4)
+%>
+  <div class="xskin-products-store">
+    <div class="large-6 left no-margin">
+      <div class="xskin-product-item">
+        <h3><a class="xskin-store" href="/store_category?cat=<%= @store_cat_third.id %>">FEATURED ARTIST</a></h3>
+        <% if @product_variation_third.any? %>
+          <% @product_variation_third.each do |product_variation_third| %>
+          <% product_var_third = ProductVariation.find(product_variation_third.id) %>
+          <div class="medium-6 left small-12">
+                <div class="iphone-6">
+                  <div class="">
+                    <a href="/product?product=<%= product_variation_third.id %>">
+                    <%= image_tag(product_var_third.image.url(:medium)) %>
+                  </a>
+                  </div>
+                  <div class="masking smooth">
+                    <div class="xskin-add-to-cart">
+                      <div class="add-to-cart">
+                      <a href="/wishlist/<%= product_variation_third.id %>"><span class="smooth cart">
+                        <%= image_tag"zoom.png" %>
+                        </span></a>
+                        <a href="/cart/<%= product_variation_third.id %>"><span class="smooth cart your-cart">
+                        <%= image_tag"add-to-cart.png" %>
+                        </span></a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+          </div>
+            <!-- popular item close from here -->
+          <% end %>
+        <% else %>
+          <div class="no-data">Latest products are coming soon!!</div>
+        <% end %>
+
+          <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- popular items close from here -->
+
+
+    <div class="large-6 left no-margin">
+      <div class="xskin-product-item">
+        <h3><a class="xskin-store" href="/gift">PRODUCTS</a></h3>
+        <div class="medium-6 left small-12">
+          <div class="iphone-6">
+        <%= image_tag"popular-item-1.jpg" %>
+        <div class="masking smooth">
+          <div class="xskin-add-to-cart">
+            <div class="add-to-cart">
+            <a href="<%=store_category_path(:collection=>'product') %>"><span class="smooth cart">
+              <%=image_tag "zoom.png" %>
+              </span></a>
+              <a href="#"><span class="smooth cart your-cart">
+              <%= image_tag"add-to-cart.png" %>
+              </span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+          <!-- popular item close from here -->
+
+          <div class="medium-6 left small-12">
+          <div class="iphone-6">
+        <%= image_tag"popular-item-1.jpg" %>
+        <div class="masking smooth">
+          <div class="xskin-add-to-cart">
+            <div class="add-to-cart">
+            <a href="<%=store_category_path(:collection=>'product') %>"><span class="smooth cart">
+              <%=image_tag "zoom.png" %>
+              </span></a>
+              <a href="#"><span class="smooth cart your-cart">
+              <%= image_tag"add-to-cart.png" %>
+              </span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+          <!-- popular item close from here -->
+
+          <div class="medium-6 left small-12">
+          <div class="iphone-6">
+        <%= image_tag"popular-item-1.jpg" %>
+        <div class="masking smooth">
+          <div class="xskin-add-to-cart">
+            <div class="add-to-cart">
+            <a href="<%=store_category_path(:collection=>'categories') %>"><span class="smooth cart">
+              <%=image_tag "zoom.png" %>
+              </span></a>
+              <a href="#"><span class="smooth cart your-cart">
+              <%= image_tag"add-to-cart.png" %>
+              </span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+          <!-- popular item close from here -->
+
+          <div class="medium-6 left small-12">
+          <div class="iphone-6">
+        <%= image_tag"popular-item-2.jpg" %>
+        <div class="masking smooth">
+          <div class="xskin-add-to-cart">
+            <div class="add-to-cart">
+            <a href="<%=store_category_path(:collection=>'product') %>"><span class="smooth cart">
+              <%=image_tag "zoom.png" %>
+              </span></a>
+              <a href="#"><span class="smooth cart your-cart">
+              <%= image_tag"add-to-cart.png" %>
+              </span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+          <!-- popular item close from here -->
+
+
+          <div class="clearfix"></div>
+      </div>
+    </div>
+    <!-- popular items close from here -->
+    <div class="clearfix"></div>
+  </div>
+  <!-- product store close from here -->
+  </div>
+</section>

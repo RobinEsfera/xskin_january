@@ -1,0 +1,99 @@
+<section>
+  <div class="row">
+    <div class="xskin-cart">
+    <ul class="breadcrumbs mobile-only">
+        <li><a href="#">MEMBERSHIP</a></li>
+        <li class="current"><a href="#">Shopping Cart</a></li>
+      </ul>
+   
+    <h4 class="shopping-cart">Shopping cart</h4>
+
+    <% if @cart.any? %>
+      <div class="medium-7 small-12 left">
+        <div class="shipping-cart">
+
+        <% @total = 0 %>
+        <% if @cart.any? %>
+          <% @cart.each do |id,quantity|
+
+            @product_variation = ProductVariation.where(:id => id).first
+            @product_color = ProductColor.where(:id => @product_variation.product_color_id).first
+            @product = Product.find(@product_variation.product_id)
+            @store_sub_category = StoreSubCategory.find(@product.store_sub_category_id)
+            @sub_device = SubDevice.where(:device_id => @product.device_id).first
+           %>
+
+            <div class="cart-product" data-product_id="<%= id %>">
+              <div class="medium-4 small-5 left text-center">
+
+        <%= image_tag(@product_variation.image.url) %>
+              </div>
+              <div class="medium-8 small-7 left">
+                <div class="shipping-cart-product">
+                  <span class="happy"><%= @product.name %></span>
+                  <span class="pd_price">$ <%= @product.price %></span>
+                  <p><strong>Models:</strong><%= @sub_device.name %></p>
+                  <p><strong>Category:</strong><%= @store_sub_category.name %></p>
+                  <p><strong>Color:</strong><%= @product_color.name %></p>
+                  <p><strong>Qty:</strong> <input type="number" name="quantity" min="1" max="99" value="<%= quantity %>" class="cart-update" /></p>
+                </div>
+              </div>
+              <div class="close">
+                <a href="/cart/clear?id=<%= id %>"><i class="fa fa-close"></i> Remove</a>
+              </div>
+            </div>
+            <% @total += quantity * @product.price %>
+          <% end %>
+        <% end %>
+          <!-- cart product close from here -->
+
+
+          <div class="clearfix"></div>
+        </div>
+      </div>
+      <!-- product cart by user close from here -->
+
+      <div class="medium-5 small-12 left">
+        <div class="cart-overview">
+          <h6>Cart Overview</h6>
+          <ul class="product-cart-overview">
+            <% if @cart.any? %>
+            <% @i = 1 %>
+            <% @cart.each do |id,quantity|
+
+              @product_variation = ProductVariation.where(:id => id).first
+              @product_color = ProductColor.where(:id => @product_variation.product_color_id).first
+              @product = Product.find(@product_variation.product_id)
+              @store_sub_category = StoreSubCategory.find(@product.store_sub_category_id)
+             %>
+              <li><%= "#{quantity} #{@product.name} (#{@product_color.name})" %></li>
+              <% @i += 1 %>
+            <% end %>
+            <% end %>
+          </ul>
+          <p><span class="left"><strong>Subtotal:</strong></span><span class="right">HK &dollar; <%= @total %></span></p>
+          <div class="clearfix"></div>
+          <p><span class="left"><strong>Shipping:</strong></span><span class="right">HK &dollar; 0</span></p>
+
+          <div class="total-cart-price">
+            <h3><span>Total</span><span class="cart-total">HK$ <%= @total %></span></h3>
+            <form>
+              <input type="text" placeholder="Enter promotional code">
+              <input type="submit" value="GO" />
+            </form>
+            <div class="checkout">
+              <a href="/checkout_shipping" class="cart-checkout">Checkout</a>
+            </div>
+          </div>
+          <!-- total cart price close from here -->
+        </div>
+      </div>
+      <!-- cart overview close from here -->
+    <% else %>
+      <div class="class="medium-7 small-12 left"">
+        <div class="no-data">There is no product in your cart.</div>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+
+<div ng-app="myApp">
+
+  <div ng-controller="AppController as myCtrl">
+<!-- <div ng-bind-html="myCtrl.explicitlyTrustedHtml" id="explicitlyTrustedHtml"></div> -->
+
+<div myattr="123" id="divID">Attribute DIV <b>123</b>
+</div>
+<button ng-click="readAttr()">Read Attribute value by element</button>
+<!-- <button data-id="345" ng-click="doStuff($event.target)">Button</button> -->
+	<div class="design-template" data-tpl="{{ layout }}">
+		<div ng-repeat="x in grids" class="placeholder grabbable image-transformable ui-droppable" data-tpid="{{ $index + 1 }}" style="top:{{ x.top}}px; left:{{ x.left}}px; width:{{ x.width}}px; height:{{ x.height}}px;" aria-disabled="false">{{ $index + 1 }}</div>
+	</div>
+</div>
+</div>
+
+
+<p><b>Note:</b> This example includes the "angular-sanitize.js",
+which has functions for removing potentially dangerous tokens from the HTML.</p>

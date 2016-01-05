@@ -1,0 +1,55 @@
+
+      <!-- xskin dashboard design start from here -->
+      <div class="xskin-dshboard-design">
+        <h3>New Stamp</h3>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="stamp">Stamps</a></li>
+            <li class="current">New</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title"><a href="stamp"><i class="fa fa-list"></i> List</a></li>
+            <li class="tab-title active"><a href="add_user"><i class="fa fa-user-plus"></i> Add new</a></li>
+          </ul>
+
+          <div class="tabs-content">
+
+            <!-- add new tab start from here -->
+             <div id="AddNew" class="content active">
+                <div class="xskin-add-new-user">
+
+                  <%= form_for @stamp, url: {action: "add_stamp"}, html: {class: "nifty_form"} do |f| %>
+                    <div class="medium-12 columns">
+                      <%= f.label :name %>
+                      <%= f.text_field :name %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :image %>
+                      <%= f.file_field :image %>
+                    </div>
+                    <div class="medium-12 columns">
+                        <label>
+                        <%= f.check_box :active, {}, true, false %>
+                            Is Active?
+                        </label>
+                    </div>
+                    <div class="xskin-action">
+                      <%= f.submit :class => 'button'  %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+             <!-- add new tab close from here -->
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->
+

@@ -1,0 +1,152 @@
+<div class="firstpros-seo-page">
+<div class="row">
+<div class="large-4 right">
+
+<% if (!defined?(@subscribed)) %>
+<h4>Subscribe to Social Shout for only <strong>&dollar;9.95</strong> per month</h4>
+<% end %>
+<% flash.each do |key, value| %>
+  <%= content_tag :div, value, class: "flash success #{key}" %>
+<% end %>
+
+<% if (defined?(@subscribed)) %>
+  <div style="display:none;">
+<% else %>
+  <div>
+<% end %>
+    <%= form_for @subscribe do |f| %>
+    	<% if @subscribe.errors.any? %>
+    		<div class="error_messages">
+    			<h2><%= pluralize(@subscribe.errors.count, "error") %> prohibited this subscription from being saved:</h2>
+    			<ul>
+    			<% @subscribe.errors.full_messages.each do |msg| %>
+    			<li><%= msg %></li>
+    			<% end %>
+    			</ul>
+    		</div>
+    	<% end %>
+
+    <%= f.hidden_field :email, :value => current_user.email  %>
+    <%= f.hidden_field :plan_id %>
+    <%= f.hidden_field :stripe_card_token %>
+
+    <% if @subscribe.stripe_card_token %>
+      Credit card has been provided.
+    <% else %>
+    <h2>Pay to Subscribe:</h2>
+    <div id="stripe_error">
+      <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+    </div>
+      <div class="field">
+        <%= text_field_tag :card_number, nil, name: nil, placeholder: "Card Number" %>
+      </div>
+      <div class="field">
+        <%= text_field_tag :card_code, nil, name: nil, placeholder: "CVV" %>
+      </div>
+      <div class="field select-field">
+        <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"} %>
+        <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"} %>
+      </div>
+    <% end %>
+    <div class="actions">
+    <%= f.submit "Subscribe" %>
+    </div>
+    <% end %>
+  </div>
+
+<% if (defined?(@subscribed)) %>
+  <div class="pay-amount-button">
+<% else %>
+  <div class="pay-amount-button" style="display:none;">
+<% end %>
+  <h2>Thank You for subscribing to SociShout.</h2>
+    <a href="/seo/tool" class="bttn">Let’s Get Started <i class="fi-play"></i></a>
+  </div>
+
+</div>
+</div>
+</div>
+<div class="clearfix"></div>
+  <div class="about-firstpros-content">
+  <div class="row">
+  <div class="large-8 left">
+    <span class="sub-title"><span class="m-title">SociShout</span> – Social Posting &amp; Content Scheduling Tool</span>
+    <p>Whether you have just registered as a new member or have been actively using First Pros, one tool that helps grow your online outreach is SociShout. SociShout is our flagship product that has an automated social posting and content scheduling system, all in one place.</p>
+    <p>Starting at only $9.95 per month, SociShout gives our members unlimited usage for promoting their online presence and posting content on Facebook, Twitter, FirstPros, and LinkedIn. It also allows members to schedule posts for the future automatically. You’ll never have to constantly update posts manually across your social media presence ever again!</p></div>
+    <div class="large-4 left">
+    <div class="social-icon-for-submit-content">
+      <h2>Submit your content on:</h2>
+      <ul>
+        <li><a class="seo-social" href="#"><img src="../images/orange-facebook.png" alt="" /></a></li>
+        <li><a class="seo-social" href="#"><img src="../images/twitter-sparrow-1.png" alt="" /></a></li>
+        <li><a class="seo-social" href="#"><img src="../images/linkedin-1.png" alt="" /></a></li>
+        <li><a class="seo-social" href="#"><img src="../images/favicon.png" alt="" /></a></li>
+      </ul>
+      </div>
+    </div>
+    </div>
+
+    <section>
+    <div class="benefits-of-socishout">
+    <div class="row">
+      <h2>Benefits of SociShout</h2>
+      <div class="large-6 columns">
+        <span class="sub-title">Online Presence – </span><p>Make your First Pros profile visible across Google, Yahoo, Bing, and other search engines. SociShout provides you with profile optimization, which will help you create a highly visible presence on the Top 4 social media networks for your individual or business profile. </p>
+      </div>
+      <div class="large-6 columns text-right">
+      <div class="online-presence">
+        <img src="../images/online-presence.jpg" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+  <!-- Online Presence close from here -->
+
+
+<div class="clearfix"></div>
+  <section>
+    <div class="content-management">
+    <div class="row">
+      <div class="benefits-of-socishout">      
+      <div class="large-6 columns">
+      <div class="online-presence">
+        <img src="../images/content-management.png" alt="" />
+        </div>
+      </div>
+      <div class="large-6 columns">
+        <span class="sub-title">Content Management – </span><p>SociShout is a smart tool for posting and scheduling content that can generate interest, drive leads, and convert. It’s a universal tool for scheduling and sharing posts on First Pros as well as Facebook, Twitter, FirstPros, and LinkedIn.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+  </section>
+  <!-- Content Management close from here -->
+
+ <div class="clearfix"></div>
+
+ <section>
+    <div class="benefits-of-socishout">
+    <div class="row">
+      <div class="large-6 columns">
+        <span class="sub-title">Automated Payments – </span><p>Once you have signed up for SociShout, your subscription will be automatically renewed at the start of each month (i.e. 30 days). If you want to opt out, you can always choose to cancel your subscription once the time period expires.</p>
+      </div>
+      <div class="large-6 columns text-right">
+      <div class="online-presence">
+        <img src="../images/automated-payments.jpg" alt="" />
+        </div>
+      </div>
+  </div>
+  </div>
+  </section>
+  <!-- Automated Payments close from here -->
+  <div class="row">
+  <div class="large-12 columns">
+    <p>SociShout is an innovative tool that helps individuals and businesses with their specific goals. If you’re not sure how SociShout will help you progress, you can always get in touch with our customer support team to find out more!</p>
+  </div>
+  </div>
+
+  </div>
+
+
+

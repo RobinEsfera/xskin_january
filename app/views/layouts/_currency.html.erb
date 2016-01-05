@@ -1,0 +1,30 @@
+<% @arrCurrency = Currency.all %>
+<div id="xskin-currencyModal" class="reveal-modal large" data-reveal aria-labelledby="videoModalTitle" aria-hidden="true" role="dialog">
+  <h5>Choose your Currency</h5>
+    <ul class="world-currency">
+
+      <% if @arrCurrency.any? %>
+        <% @arrCurrency.each do |arrCurrency| %>
+          <% if arrCurrency.name == cookies[:currency] %>
+            <li><a href="javascript:void(0);" class="active-currency"><%= arrCurrency.name %></a></li>
+
+          <% else %>
+            <li><a href="javascript:void(0);"><%= arrCurrency.name %></a></li>
+            
+          <% end %>
+        <% end %>
+      <% end %>
+    </ul>
+    <div class="clearfix"></div>
+    <div class="confirm">
+      <%=form_tag"/page/select_currency" do %>
+      <%= hidden_field_tag"selected_currency" %>
+      <%= submit_tag"Confirm" %>
+      <% end %>
+      
+
+    </div>
+
+        <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+      </div>
+      <!-- Reveal Modals end -->

@@ -1,0 +1,213 @@
+<% @store_category_options = StoreCategory.all.map{|u| [ u.name, u.id ] } 
+  if @product.store_category_id.present?
+    @store_sub_category_options = StoreSubCategory.where(:store_category_id => @product.store_category_id).map{|u| [ u.name, u.id ] } 
+  else
+    store_category_first = StoreCategory.first
+    @store_sub_category_options = StoreSubCategory.where(:store_category_id => store_category_first.id).map{|u| [ u.name, u.id ] }     
+  end
+
+  @device_options = Device.all.map{|u| [ u.name, u.id ] } 
+  if @product.device_id.present?
+    @sub_device_options = SubDevice.where(:device_id => @product.device_id).map{|u| [ u.name, u.id ] } 
+  else
+    device_first = Device.first
+    @sub_device_options = SubDevice.where(:device_id => device_first.id).map{|u| [ u.name, u.id ] }     
+  end
+
+  @user_options = User.all.map{|u| [ u.name, u.id ] } 
+  @case_options = Case.all.map{|u| [ u.name, u.id ] } 
+  @layout_options = Layout.all.map{|u| [ u.name, u.id ] } 
+  @brand_options = Brand.all.map{|u| [ u.name, u.id ] } 
+%>
+      <!-- xskin dashboard design start from here -->
+      <div class="xskin-dshboard-design">
+        <h3>Edit Product "<%= @product.name %>"</h3>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="/backend/product">Products</a></li>
+            <li class="current">Edit</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title"><a href="show_product"><i class="fa fa-camera"></i> Show</a></li>
+            <li class="tab-title active"><a href="edit_product"><i class="fa fa-pencil"></i> Edit</a></li>
+            <li class="tab-title">
+              <%= link_to "<i class='fa fa-trash'></i> Delete".html_safe, "delete_product", method: :delete, :title => "Delete", data: { confirm: 'Are you confirm you want to delete this?' } %>
+            </li>
+          </ul>
+
+          <div class="tabs-content">
+
+            <!-- add new tab start from here -->
+             <div id="AddNew" class="content active">
+             
+                <div class="xskin-add-new-user">
+
+                  <%= form_for @product, url: {action: "edit_product"}, html: {class: "nifty_form", method: "post"} do |f| %>
+                    <div class="medium-6 columns">
+                      <%= f.label :name %>
+                      <%= f.text_field :name %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :user %>
+
+                     <% if !@product.nil? && @product.user_id.present? %>
+                        <%= f.select(:user_id, options_for_select(@user_options, @product.user_id), {:include_blank => 'Select..'}) %>
+                     <% else %>
+                        <%= f.select(:user_id, options_for_select(@user_options), {:include_blank => 'Select..'}) %>
+                     <% end %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :Store_category %>
+
+                     <% if !@product.nil? && @product.store_category_id.present? %>
+                        <%= f.select(:store_category_id, options_for_select(@store_category_options, @product.store_category_id), {:include_blank => 'Select..'}, :class => "ajax_store_category_id") %>
+                     <% else %>
+                        <%= f.select(:store_category_id, options_for_select(@store_category_options), {:include_blank => 'Select..'}, :class => "ajax_store_category_id") %>
+                     <% end %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :Store_sub_category %>
+                     <% if !@product.nil? && @product.store_sub_category_id.present? %>
+                        <%= f.select(:store_sub_category_id, options_for_select(@store_sub_category_options, @product.store_sub_category_id), {:include_blank => 'Select..'}, :class => "ajax_store_sub_category_id") %>
+                     <% else %>
+                        <%= f.select(:store_sub_category_id, options_for_select(@store_sub_category_options), {:include_blank => 'Select..'}, :class => "ajax_store_sub_category_id") %>
+                     <% end %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :device %>
+
+                     <% if !@product.nil? && @product.device_id.present? %>
+                        <%= f.select(:device_id, options_for_select(@device_options, @product.device_id), {:include_blank => 'Select..'}, :class => "ajax_device_id") %>
+                     <% else %>
+                        <%= f.select(:device_id, options_for_select(@device_options), {:include_blank => 'Select..'}, :class => "ajax_device_id") %>
+                     <% end %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :Sub_device %>
+
+                     <% if !@product.nil? && @product.sub_device_id.present? %>
+                        <%= f.select(:sub_device_id, options_for_select(@sub_device_options, @product.sub_device_id), {:include_blank => 'Select..'}, :class => "ajax_sub_device_id") %>
+                     <% else %>
+                        <%= f.select(:sub_device_id, options_for_select(@sub_device_options), {:include_blank => 'Select..'}, :class => "ajax_sub_device_id") %>
+                     <% end %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :case %>
+
+                     <% if !@product.nil? && @product.case_id.present? %>
+                        <%= f.select(:case_id, options_for_select(@case_options, @product.case_id), {:include_blank => 'Select..'}) %>
+                     <% else %>
+                        <%= f.select(:case_id, options_for_select(@case_options), {:include_blank => 'Select..'}) %>
+                     <% end %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :layout %>
+
+                     <% if !@product.nil? && @product.layout_id.present? %>
+                        <%= f.select(:layout_id, options_for_select(@layout_options, @product.layout_id), {:include_blank => 'Select..'}) %>
+                     <% else %>
+                        <%= f.select(:layout_id, options_for_select(@layout_options), {:include_blank => 'Select..'}) %>
+                     <% end %>
+                    </div>
+                    <div class="medium-6 columns left">
+                      <%= f.label :brand %>
+
+                     <% if !@product.nil? && @product.brand_id.present? %>
+                        <%= f.select(:brand_id, options_for_select(@brand_options, @product.brand_id), {:include_blank => 'Select..'}) %>
+                     <% else %>
+                        <%= f.select(:brand_id, options_for_select(@brand_options), {:include_blank => 'Select..'}) %>
+                     <% end %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :price %>
+                      <%= f.text_field :price %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :description %>
+                      <%= f.text_area :description %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :tag %>
+                      <%= f.text_field :tag %>
+                    </div>
+                    <div class="medium-12 columns">
+                        <label>
+                        <%= f.check_box :is_active, {}, true, false %>
+                            Is Active?
+                        </label>
+                    </div>
+                    <div class="xskin-action">
+                      <%= f.submit :class => 'button'  %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="clearfix"></div>
+
+<div class="">
+  <div class="before-check columns"><h5>Product Variations
+  <a href="add_product_variation" class="button" style="float:right; margin:0px;">Add new variation</a></h5></div>
+</div>
+                <div class="xskin-user-entry">
+                 <table cellpadding="0" cellspacing="0" width="100%;" id="device" class="display">
+                     <thead>
+                         <tr>
+                             <th><input type="checkbox" /></th>
+                             <th>Id</th>
+                             <th>Image</th>
+                             <th>Product Color</th>                             
+                             <th>Is Active</th>
+                             <th>Created At</th>
+                             <th class="last shrink" style="width:10%;">ACTION</th>
+                         </tr>
+                     </thead>
+                     <tbody>
+                      <% if @product_variations.any?
+                        @product_variations.each do |product_variations| 
+
+                          product_color = ProductColor.where(:id => product_variations.product_color_id).first
+                        %>
+                         <tr>
+                             <td><input type="checkbox" /></td>
+                             <td><%= product_variations.id %></td>
+                             <td><%= image_tag(product_variations.image.url(:medium)) %></td>
+                             <td><%= (!product_color.nil?) ? product_color.name : "" %></td>
+                            <% if product_variations.active == true %>
+                            <td class="is_active_field boolean_type" title="✓"><span class="label label-success">✓</span></td>
+                            <% else %>
+                                <td class="is_active_field boolean_type" title="✘"><span class="label label-danger">✘</span></td>
+                            <% end %>
+                             <td><%= product_variations.created_at.to_formatted_s(:long) %></td>
+                             <td class="last links">
+                                 <ul>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-info-circle'></i>".html_safe, "/backend/#{product_variations.id}/show_product_variation?product_id=#{params[:id]}", :title => "Show" %>
+                                     </li>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, "/backend/#{product_variations.id}/edit_product_variation?product_id=#{params[:id]}", :title => "Edit" %>
+                                     </li>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-close'></i>".html_safe, "/backend/#{product_variations.id}/delete_product_variation?product_id=#{params[:id]}", method: :delete, :title => "Delete", data: { confirm: 'Are you confirm you want to delete this?' } %>
+                                     </li>
+                                 </ul>
+                             </td>
+                         </tr>
+                        <% end %>
+                      <% end %>
+                     </tbody>
+                 </table>
+             </div>
+                <div class="clearfix"></div>
+             </div>
+             <!-- add new tab close from here -->
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->
+

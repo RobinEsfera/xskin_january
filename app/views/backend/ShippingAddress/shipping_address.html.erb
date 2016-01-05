@@ -1,0 +1,137 @@
+
+    <!-- xskin dashboard design start from here -->
+    <div class="xskin-dshboard-design">
+        <h3>List of Users</h3>
+    <%= render "layouts/admin/messages" %>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li class="current">Shipping Address</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title active"><a href="shipping_address"><i class="fa fa-list"></i> List</a></li>
+            <li class="tab-title"><a href="add_shipping_address"><i class="fa fa-user-plus"></i> Add new</a></li>
+          </ul>
+
+          <div class="tabs-content">
+
+          <!-- list tab start from here -->
+            <div id="List" class="content active">
+             <div class="xskin-user-entry">
+                 <table cellpadding="0" cellspacing="0" width="100%;" id="device" class="display">
+                     <thead>
+                         <tr>
+                             <th><input type="checkbox" /></th>
+                             <th>Id</th>
+                             <th>User</th>
+                             <th>First Name</th>
+                             <th>Last Name</th>
+                             <th>Address</th>
+                             <th>Country</th>
+                             <th>City</th>
+                             <th>State</th>
+                             <th>Pincode</th>
+                             <th>Mobile</th>
+                             <th>Created at</th>
+                            
+                         </tr>
+                     </thead>
+                     <tbody>
+                      <% if @shipping_addresses.any? %>
+                        <% @shipping_addresses.each do |shipping_addresses| 
+                            shipping_user = User.where(:id => shipping_addresses.user_id).first
+                            shipping_country = Country.where(:id => shipping_addresses.country_id).first
+                            %>
+                         <tr>
+                             <td><input type="checkbox" /></td>
+                             <td><%= shipping_addresses.id %></td>
+                             <td><%= (!shipping_user.nil?) ? shipping_user.name : "" %></td>
+                             <td><%= shipping_addresses.first_name %></td>
+                             <td><%= shipping_addresses.last_name %></td>
+                             <td><%= shipping_addresses.address1 %></td>
+                             <td><%= (!shipping_country.nil?) ? shipping_country.name : "" %></td>
+                             <td><%= shipping_addresses.city %></td>
+                             <td><%= shipping_addresses.state %></td>
+                             <td><%= shipping_addresses.pincode %></td>
+                             <td><%= shipping_addresses.mobile %></td>
+                            
+                             <td class="last links">
+                                 <ul>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-info-circle'></i>".html_safe, "#{shipping_addresses.id}/show_shipping_address", :title => "Show" %>
+                                     </li>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-pencil'></i>".html_safe, "#{shipping_addresses.id}/edit_shipping_address", :title => "Edit" %>
+                                     </li>
+                                     <li>
+                                      <%= link_to "<i class='fa fa-close'></i>".html_safe, "/backend/#{shipping_addresses.id}/delete_shipping_address", method: :delete, :title => "Delete", data: { confirm: 'Are you confirm you want to delete this?' } %>
+                                     </li>
+                                 </ul>
+                             </td>
+                         </tr>
+                        <% end %>
+                      <% end %>
+                     </tbody>
+                 </table>
+             </div>
+             <div class="clearfix"></div>
+            </div>
+            <!-- list tab close from here -->
+
+            <!-- add new tab start from here -->
+             <div id="AddNew" class="content">
+                <div class="xskin-add-new-user">
+                    <form class="new-user-ad">
+                        <div class="medium-12 columns">
+                            <p>Email</p>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="medium-6 columns">
+                            <p>Password</p>
+                            <input type="password" class="form-control" />
+                        </div>
+                        <div class="medium-6 columns">
+                            <p>Password confirmation</p>
+                            <input type="password" class="form-control" />
+                        </div>
+                        <div class="medium-6 columns">
+                            <p>Name</p>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="medium-6 columns">
+                            <p>Email2</p>
+                            <input type="text" class="form-control" />
+                        </div>
+                        <div class="medium-12 columns">
+                            <label>
+                                <input type="checkbox" /> Lorem ipsum dolor sit amet, consectetur
+                            </label>
+                        </div>
+                        <div class="xskin-action">
+                            <a href="#" class="button">Save</a>
+                            <a href="#" class="button cancel">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+             <!-- add new tab close from here -->
+
+
+             <div id="Export" class="content">
+             export
+             </div>
+             <div id="panel55" class="content">
+             import
+             </div>
+
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->

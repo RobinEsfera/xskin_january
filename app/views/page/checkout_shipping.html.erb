@@ -1,0 +1,216 @@
+<section>
+  <div class="row">
+    <div class="xskin-cart">
+    <ul class="breadcrumbs mobile-only">
+        <li><a href="#">MEMBERSHIP</a></li>
+        <li class="current"><a href="#">Shipping Address</a></li>
+      </ul>
+   
+    <div class="xskin-shopping-address xskin-shopping-form">
+	    <ul>
+	    	<li class="in-selected"><span>1</span>
+	    	<a href="checkout_shipping">Shopping Address</a>
+	    	</li>
+	    	<li><i class="fa fa-long-arrow-right"></i></li>
+	    	<li><span>2</span>
+	    	Payment Option
+	    	</li>
+	    	<div class="clearfix"></div>
+	    </ul>
+	    <div class="shopping-title">
+	    	1. Shopping Address 
+	    </div>
+  	<%=  form_for  :checkout,:url=>{:controller => :page, :action => :checkout_shipping_submit},:html => {:method=>:post} do |f| %>
+	    <!-- address section start from here -->
+	    <div class="xskin-address-section">
+	    <!-- address start from here -->
+    	<div class="small-5 columns">
+    		<div class="shopping-address">
+    			<h5>Address Book <a href="javascript:void(0);" id="ship_new_address">Ship to new address</a></h5>
+    			<% if !@shipping_address.nil? %>
+    			<% if @shipping_address.country_id.present? 
+    				@country = Country.find(@shipping_address.country_id)
+    			end %>
+    			<div class="xskin-shopper">
+    				<p class="name"><%= @shipping_address.first_name.capitalize %> <%= @shipping_address.last_name.capitalize %></p>
+    				<span><%= @shipping_address.first_name.capitalize %> <%= @shipping_address.last_name.capitalize %></span>
+    				<p><%= @shipping_address.address1 %><br><%= @shipping_address.city %>, <%= @shipping_address.state %><br>
+    				<%= (!@country.nil?) ? "#{@country.name} - " : "" %><%= @shipping_address.pincode %>, <%= @shipping_address.mobile %></p>
+    				<!-- <a href="#">Edit Address</a> -->
+    				<div class="clearfix"></div>
+    				<div class="small-12 left">
+    					<a id="get_shipping" class="click-select" href="javascript:void(0);">Click To Select <span class="select-check"><i class="fa fa-check"></i></span></a>
+	    			</div>
+	    			<div class="clearfix"></div>
+    			</div>
+    			<% end %>
+    			
+    		</div>
+    	</div>
+		<!-- address close from here -->
+
+		<!-- left form fields start from here -->
+		<div class="small-7 left">
+		<h5>Shipping Address</h5>
+		<div class="xskin-shopping-fields">
+		
+			<div class="medium-6 columns">
+				<div class="field">
+					<label>First Name</label>
+                  	<%= f.text_field :shipping_first_name, autofocus: true, required: true %>
+				</div>
+			</div>
+			<div class="medium-6 columns">
+				<div class="field">
+					<label>Last Name</label>
+                  	<%= f.text_field :shipping_last_name, required: true %>
+				</div>
+			</div>
+			<div class="medium-12 columns">
+				<div class="field">
+					<label>Address</label>
+                      <%= f.text_area :shipping_address, rows: 1, cols: 5, required: true %>
+				</div>
+			</div>
+			<div class="medium-6 columns">
+				<div class="field">
+					<label>City</label>
+                  	<%= f.text_field :shipping_city, required: true %>
+				</div>
+			</div>
+			<div class="medium-6 columns">
+				<div class="field">
+					<label>State</label>
+                  	<%= f.text_field :shipping_state, required: true %>
+				</div>
+			</div>
+
+			<div class="medium-6 columns">
+				<div class="field">
+					<label>Pin Code</label>
+                  	<%= f.text_field :shipping_pincode, required: true %>
+				</div>
+			</div>
+
+			<div class="medium-6 columns">
+				<div class="field">
+					<label>Mobile No</label>
+                  	<%= f.text_field :shipping_mobile, required: true %>
+				</div>
+			</div>
+
+		</div>
+		</div>
+		<!-- left form fields close from here -->
+
+		</div>
+		<!-- address section close from here -->
+
+
+
+		<!-- address section start from here -->
+	    <div class="xskin-address-section last">
+	    <div class="before-check columns">
+	    	<h5>Billing Address</h5>
+	    	<div class="check-here">
+	    		<label>
+	    			<input type="checkbox" name="billing_check" class="billing_check" checked="true" />
+	    			<a href="javascript:void(0);">
+	    				Use my shipping address <span>Click here to change your address</span>
+	    			</a>
+	    		</label>
+	    	</div>
+	    </div>
+	    <div class="billing-address" style="display:none;">
+		    <!-- address start from here -->
+	    	<div class="small-5 columns">
+	    		<div class="shopping-address">
+    				<h5>Address Book <a href="javascript:void(0);" id="bill_new_address">Bill to new address</a></h5>
+    				<% if !@billing_address.nil? %>
+		    			<div class="xskin-shopper">
+		    				<p class="name"><%= @billing_address.first_name.capitalize %> <%= @billing_address.last_name.capitalize %></p>
+		    				<span><%= @billing_address.first_name.capitalize %> <%= @billing_address.last_name.capitalize %></span>
+		    				<p><%= @billing_address.address %><br><%= @billing_address.city %>, <%= @billing_address.state %><br>
+		    				<%= (!@country.nil?) ? "#{@country.name} - " : "" %><%= @billing_address.pincode %>, <%= @billing_address.mobile %></p>
+		    				<!-- <a href="#">Edit Address</a> -->
+		    				<div class="clearfix"></div>
+		    				<div class="small-12 left">
+			    				<a id="get_billing" class="click-select" href="javascript:void(0);">Click To Select <span class="select-check"><i class="fa fa-check"></i></span></a>
+			    			</div>
+			    			<div class="clearfix"></div>
+		    			</div>
+		    		<% end %>
+	    			
+	    		</div>
+	    	</div>
+			<!-- address close from here -->
+
+			<!-- left form fields start from here -->
+			<div class="small-7 left">
+			<h5>Billing Address</h5>
+			<div class="xskin-shopping-fields">
+	
+				<div class="medium-6 columns">
+					<div class="field">
+					<label>First Name</label>
+                  		<%= f.text_field :billing_first_name %>
+					</div>
+				</div>
+				<div class="medium-6 columns">
+					<div class="field">
+					<label>Last Name</label>
+                  		<%= f.text_field :billing_last_name, autofocus: true %>
+					</div>
+				</div>
+				<div class="medium-12 columns">
+					<div class="field">
+						<label>Address</label>
+                      	<%= f.text_area :billing_address, rows: 1, cols: 5 %>
+					</div>
+				</div>
+				<div class="medium-6 columns">
+					<div class="field">
+					<label>City</label>
+                  	<%= f.text_field :billing_city %>
+					</div>
+				</div>
+				<div class="medium-6 columns">
+					<div class="field">
+					<label>State</label>
+                  	<%= f.text_field :billing_state %>
+					</div>
+				</div>
+
+				<div class="medium-6 columns">
+					<div class="field">
+					<label>Pin Code</label>
+                  	<%= f.text_field :billing_pincode %>
+					</div>
+				</div>
+
+				<div class="medium-6 columns">
+					<div class="field">
+					<label>Mobile No</label>
+                  	<%= f.text_field :billing_mobile %>
+					</div>
+				</div>
+
+
+			</div>
+			</div>
+			<!-- left form fields close from here -->
+
+			</div>
+		</div>
+		<!-- address section close from here -->
+
+		<div class="continue text-right">
+            <%= f.submit "Continue" %>
+		</div>
+    	<div class="clearfix"></div>
+      <% end %>
+    </div>
+
+    </div>
+  </div>
+</section>

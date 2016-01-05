@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="XSkin - Case with your Instagram, Facebook and personal photos, and we use our patent pending technology to turn it into a real iPhone 6S/6/5S/5C/5 / iPhone 4S/4 / iPad 4/3/2 / iPod Touch 5/4 / Samsung Galaxy S4/III/II case.">
+    <meta name="author" content="XSkin">
+    <meta name="copyright" content="XSkin, Copyright (c) 2015">
+    <title><%= content_for?(:title) ? yield(:title) : "xSkiN Administrator" %></title>
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="<%= ActionController::Base.helpers.asset_path('favicon.png') %>" type="image/png" sizes="16x16"> 
+
+    <%= stylesheet_link_tag    "application" %>
+       <%= csrf_meta_tags %>
+  </head>
+
+  <body data-no-turbolink class="<%=controller.controller_name%>_<%= controller.action_name%>">
+
+
+    <%= render "layouts/admin/header" %>
+       <%= yield %>
+    <%= render "layouts/admin/footer" %>
+
+ <%= javascript_include_tag "vendor/modernizr" %>
+<%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+
+  </body>
+</html>

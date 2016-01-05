@@ -1,0 +1,259 @@
+<section>
+  <div class="row">
+    <div class="xskin-product-description">
+      <div class="medium-5 small-12 left">
+        <ul class="breadcrumbs">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Store</a></li>
+        <li class="current"><a href="#">top 100 design</a></li>
+      </ul>
+      <div class="xskin-product-view">
+        <%= image_tag(@product_variation.image.url,:class=>"product-preview") %>
+        <ul class="thumbnail-views">
+          <li><a href="javascript:void(0);">
+
+          <%= image_tag"thumbnail-view-1.png" %>
+          </a></li>
+          <li><a href="javascript:void(0);">
+          <%= image_tag"thumbnail-view-2.png" %>
+          </a></li>
+          <li><a href="javascript:void(0);">
+          <%= image_tag"thumbnail-view-3.png" %>
+          </a></li>
+          <li><a href="javascript:void(0);">
+          <%= image_tag"thumbnail-view-4.png" %>
+          </a></li>
+          <div class="clearfix"></div>
+        </ul>
+
+      </div>
+
+      </div>
+      <div class="medium-7 small-12 left">
+        <div class="xskin-about-product">
+        <div class="small-12 medium-10 left">
+          <div class="product-title">
+            <h2><span><%= @store_sub_category.name %></span> <%= @product.name %></h2>
+            <span class="price">CAD &dollar;<%= @product.price %></span>
+          </div>
+          <div class="choose-product-quality">
+            <div class="product-names">
+              <span class="pro-name">Device:</span>
+              <span class="pro-field">
+                <p class="pro-type-view"><%= @sub_device.name %></p>
+              </span>
+            </div>
+            <!-- product name close from here -->
+
+            <div class="product-names color">
+              <span class="pro-name">Color:</span>
+              <span class="pro-field">
+                <div class="xskin-product-color">
+                <ul class="xskin-multiple-color">
+                <% if @color.any?
+                  @color.each do |color| 
+                    @checked=""
+                    if ( !@product_color.nil? && (color.code == @product_color.code))
+                      @checked="checked=true"
+                    end
+                    %>
+                    <li>
+                      <input type="radio" name="color_product" id="<%= color.name %>" color_id="<%= color.id %>" " <%= @checked %>" />
+                      <label for="<%= color.name %>" style="background-color:<%= color.code %>"><span></span></label>
+                    </li>
+                <% end 
+                end %>    
+
+                </ul>
+                </div>
+              </span>
+            </div>
+            <!-- product name close from here -->
+
+            <div class="small-12 large-2 left show-for-small-only">
+
+          <ul class="social-icons-with-cart show-for-small-only">
+              <li class="add-fav"><a href="/wishlist/<%= params[:product] %>">
+                <%=image_tag"zoom.png" %></a>
+              </li>
+              <li class="add-cart"><a href="/cart/<%= params[:product] %>">
+                <%=image_tag"add-to-cart.png" %></a>
+              </li>
+              </ul>
+
+              <ul class="social-icons-with-cart">
+              <li class="add-fav hide-for-small-only"><a href="/wishlist/<%= params[:product] %>">
+                <%=image_tag"zoom.png" %></a>
+              </li>
+              <li class="add-cart hide-for-small-only"><a href="/cart/<%= params[:product] %>">
+                <%=image_tag"add-to-cart.png" %></a>
+              </li>
+              <li><a href="#">
+                <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li><a href="#">
+                <%= image_tag"pinterest.png" %>
+                
+                </a>
+              </li>
+              <li><a href="#">
+                <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li><a href="#">
+                <i class="fa fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        <!-- social icon close from here -->
+
+            <div class="product-names">
+              <span class="pro-name">Product Type:</span>
+              <span class="pro-field">
+                <p class="pro-type-view">Backpack</p>
+              </span>
+            </div>
+            <!-- product name close from here -->
+
+            <div class="product-names">
+              <span class="pro-name">SKU:</span>
+              <span class="pro-field">
+                <p class="pro-type-view">HX2011-SP16D1-GRY</p>
+              </span>
+            </div>
+            <!-- product name close from here -->
+            <div class="product-names">
+              <span class="pro-name">Product Tags:</span>
+              <span class="pro-field">
+              <p class="pro-type-view"><%= @product.tag %></p></span>
+            </div>
+            <!-- product name close from here -->
+          </div>
+          </div>
+          <!-- left product description close from here -->
+
+          <div class="small-12 medium-2 left hide-for-small-only">
+            <ul class="social-icons-with-cart">
+              <li class="add-fav"><a href="/wishlist/<%= params[:product] %>">
+                
+                <%=image_tag"zoom.png" %></a>
+              </li>
+              <li class="add-cart"><a href="/cart/<%= params[:product] %>">
+                <%=image_tag"add-to-cart.png" %></a>
+              </li>
+              <li><a href="#">
+                <i class="fa fa-facebook"></i>
+                </a>
+              </li>
+              <li><a href="#">
+                <%=image_tag"pinterest.png" %>
+                </a>
+              </li>
+              <li><a href="#">
+                <i class="fa fa-twitter"></i>
+                </a>
+              </li>
+              <li><a href="#">
+                <i class="fa fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <!-- social icons and add cart/fav close from here -->
+           <div class="product-full-detail">
+              <span class="pro-name">Description:</span>
+              <div class="clearfix"></div>
+              <p><%= @product.description %></p>
+            </div>
+        </div>
+      </div>
+      <!-- left single product description close from here -->
+
+      <div class="clearfix"></div>
+      <div class="you-may-also-like text-center hide-for-small-only">
+        <h5>&nbsp;</h5>
+
+        <div class="medium-3 columns no-padding">
+          <div class="iphone-6">
+          <%= image_tag"popular-item-2.jpg" %>
+          <div class="masking smooth">
+            <div class="xskin-add-to-cart">
+              <div class="add-to-cart">
+              <a href="#"><span class="smooth cart">
+                <%=image_tag"zoom.png" %>
+                </span></a>
+                <a href="#"><span class="smooth cart your-cart">
+                <%=image_tag"add-to-cart.png" %>
+                </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- single product design close from here -->
+
+        <div class="medium-3 columns no-padding">
+          <div class="iphone-6">
+          <%=image_tag"popular-item-1.jpg" %>
+          <div class="masking smooth">
+            <div class="xskin-add-to-cart">
+              <div class="add-to-cart">
+              <a href="#"><span class="smooth cart">
+                <%=image_tag"zoom.png" %>
+                </span></a>
+                <a href="#"><span class="smooth cart your-cart">
+                <%=image_tag"add-to-cart.png" %>
+                </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- single product design close from here -->
+
+        <div class="medium-3 columns no-padding">
+          <div class="iphone-6">
+          <%= image_tag"popular-item-2.jpg" %>
+          <div class="masking smooth">
+            <div class="xskin-add-to-cart">
+              <div class="add-to-cart">
+              <a href="#"><span class="smooth cart">
+                <%=image_tag"zoom.png" %>
+                </span></a>
+                <a href="#"><span class="smooth cart your-cart">
+                <%=image_tag"add-to-cart.png" %>
+                </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- single product design close from here -->
+
+        <div class="medium-3 columns no-padding">
+          <div class="iphone-6">
+          <%=image_tag"popular-item-1.jpg" %>
+          <div class="masking smooth">
+            <div class="xskin-add-to-cart">
+              <div class="add-to-cart">
+              <a href="#"><span class="smooth cart">
+                <%=image_tag"zoom.png" %>
+                </span></a>
+                <a href="#"><span class="smooth cart your-cart">
+                <%=image_tag"add-to-cart.png" %>
+                </span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <!-- single product design close from here -->
+
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- product description close from here -->

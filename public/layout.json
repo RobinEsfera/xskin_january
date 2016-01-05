@@ -1,0 +1,24 @@
+{
+	"rand" : [
+		{"top" : 0, "left" : 0, "width" : 189, "height" : 210},
+		{"top" : 0, "left" : 189, "width" : 91, "height" : 105},
+		{"top" : 105, "left" : 189, "width" : 91, "height" : 105},
+		{"top" : 210, "left" : 0, "width" : 140, "height" : 140},
+		{"top" : 210, "left" : 140, "width" : 140, "height" : 140},
+		{"top" : 350, "left" : 0, "width" : 91, "height" : 105},
+		{"top" : 455, "left" : 0, "width" : 91, "height" : 105},
+		{"top" : 350, "left" : 91, "width" : 189, "height" : 210}
+	],
+	"single" : [
+		{"top" : 0, "left" : 0, "width" : 276, "height" : 560}
+	],
+	"sandwich" : [
+		{"top" : 0, "left" : 0, "width" : 276, "height" : 177},
+		{"top" : 177, "left" : 0, "width" : 276, "height" : 177},
+		{"top" : 354, "left" : 0, "width" : 276, "height" : 177}
+	],
+	"twins" : [
+		{"top" : 0, "left" : 0, "width" : 276, "height" : 265},
+		{"top" : 265, "left" : 0, "width" : 276, "height" : 265}
+	]
+}

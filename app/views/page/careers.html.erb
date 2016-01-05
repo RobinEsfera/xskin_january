@@ -1,0 +1,21 @@
+ <section>
+  <div class="row">
+    <div class="xskin-user-profile">
+    <ul class="breadcrumbs show-for-small-only mobile-only">
+        <li><a href="#">MEMBERSHIP</a></li>
+        <li class="current"><a href="#">My Profile</a></li>
+      </ul>
+    <h4 class="supprots">Support</h4>
+      <div class="medium-4 small-12 left">
+        <%= render"layouts/support_menu" %>
+      </div>
+      <div class="medium-8 small-12 left">
+        <div class="xskin-user-profile-data xskin-rules">
+        <h3>Career</h3>
+          <%= @support.content.html_safe %>
+        <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

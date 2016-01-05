@@ -1,0 +1,44 @@
+<section class="xskin-my-gallery">
+<div class="row">
+<h4 class="shopping-cart hide-for-small-only">Hi! User</h4>
+<div class="medium-4 small-12 left">
+<%= render"layouts/user_menu" %>
+        </div>
+    <div class="medium-8 small-12 left">
+                                <div class="xskin-user-profile-data">
+                                <div class="invite-friend">
+                                <h4>Invite your friends. Get $10</h4>
+                                <h5>Your friends will get $10 off their first order & you'll get $10 credit!</h5>
+                                  </div>
+                                  <!-- invite friend close here -->
+                                  <div class="share-code-to-friend">
+                                    <label>Share your code below :</label>
+                                    <input type="text" placeholder="<%= current_user.referral_code %>" />
+                                    <input type="submit" value="COPY" />
+                                  </div>
+
+                                  <div class="share-code-to-friend brdr">
+                                    <label>Share using the link :</label>
+                                    <input type="text" placeholder="http://www.xskin.com/invite/<%= current_user.referral_code %>" />
+                                    <div class="invite-via-facebook-twitter">
+                                        <a href="#"><i class="fa fa-facebook"></i>share</a>
+                                    </div>
+                                    <div class="invite-via-facebook-twitter twitter">
+                                        <a href="#"><i class="fa fa-twitter"></i>share</a>
+                                    </div>
+                                  </div>
+                                  <ul class="join-friend-you-and-credit">
+                                    <li><strong>0</strong> friends have joined.</li>
+                                    <li><strong>0</strong> friends have purchased.</li>
+                                    <li>You have <strong>$0</strong> in credit</li>
+                                  </ul>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
+
+    <!-- medium-8 small-12 left -->
+</div>
+</section>

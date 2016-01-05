@@ -1,0 +1,57 @@
+
+      <!-- xskin dashboard design start from here -->
+      <div class="xskin-dshboard-design">
+        <h3>New Home Slider</h3>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="home_slider">Home Sliders</a></li>
+            <li class="current">New</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title"><a href="home_slider"><i class="fa fa-list"></i> List</a></li>
+            <li class="tab-title active"><a href="add_user"><i class="fa fa-user-plus"></i> Add new</a></li>
+          </ul>
+
+          <div class="tabs-content">
+
+            <!-- add new tab start from here -->
+             <div id="AddNew" class="content active">
+                <div class="xskin-add-new-user">
+
+                  <%= form_for @home_slider, url: {action: "add_home_slider"}, html: {class: "nifty_form"} do |f| %>
+                    <div class="medium-6 columns">
+                      <%= f.label :title %>
+                      <%= f.text_field :title %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :subtitle %>
+                      <%= f.text_field :subtitle %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :link %>
+                      <%= f.text_field :link %>
+                    </div>
+                    <div class="medium-6 columns">
+                      <%= f.label :image %>
+                      <%= f.file_field :image %>
+                    </div>
+                    <div class="xskin-action">
+                      <%= f.submit :class => 'button'  %>
+                    </div>
+                  <% end %>
+                </div>
+                <div class="clearfix"></div>
+             </div>
+             <!-- add new tab close from here -->
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->
+

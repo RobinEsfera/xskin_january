@@ -1,0 +1,41 @@
+
+    <aside class="left-off-canvas-menu">
+      <div class="xskin-dashboard-navigation">
+        <div class="user-profile-pic">
+          <div class="profile-pic"><%= image_tag("smith.jpg") %></div>
+          <div class="user-name">
+            Site Admin
+            <span>Administrator</span>
+          </div>
+        </div>
+        <ul class="dashboard-nav">
+          <li class="<%= select_class?(backend_billing_address_path) %>"><%=link_to "Billing addresses", backend_billing_address_path %> </li>
+          <li class="<%= select_class?(backend_brand_path) %>"><%=link_to "Brands", backend_brand_path %> </li>
+          <li class="<%= select_class?(backend_case_path) %>"><%=link_to "Cases", backend_case_path %> </li>
+          <li class="<%= select_class?(backend_case_type_path) %>"><%=link_to "Case types", backend_case_type_path %> </li>
+          <li class="<%= select_class?(backend_country_path) %>"><%=link_to "Countries", backend_country_path %> </li>
+          <li class="<%= select_class?(backend_currency_path) %>"><%=link_to "Currencies", backend_currency_path %> </li>
+          <li class="<%= select_class?(backend_device_path) %>"><%=link_to "Devices", backend_device_path %> </li>
+          <li class="<%= select_class?(backend_faq_path) %>"><%=link_to "Faqs", backend_faq_path %> </li>
+          <li class="<%= select_class?(backend_faq_category_path) %>"><%=link_to "Faq categories", backend_faq_category_path %> </li>
+          <li class="<%= select_class?(backend_home_slider_path) %>"><%=link_to "Home Sliders", backend_home_slider_path %> </li>
+          <li class="<%= select_class?(backend_layout_path) %>"><%=link_to "Layouts", backend_layout_path %> </li>
+          <li class="<%= select_class?(backend_make_mobile_page_path) %>"><%=link_to "Make mobile pages", backend_make_mobile_page_path %> </li>
+          <li class="<%= select_class?(backend_newsletter_path) %>"><%=link_to "Newsletter", backend_newsletter_path %> </li>
+          <li class="<%= select_class?(backend_product_path) %>"><%=link_to "Products", backend_product_path %> </li>
+          <li class="<%= select_class?(backend_product_color_path) %>"><%=link_to "Product colors", backend_product_color_path %> </li>
+          <li class="<%= select_class?(backend_shipping_address_path) %>"><%=link_to "Shipping addresses", backend_shipping_address_path %> </li>
+          <li class="<%= select_class?(backend_stamp_path) %>"><%=link_to "Stamp", backend_stamp_path %> </li>
+          <li class="<%= select_class?(backend_stamp_image_path) %>"><%=link_to "Stamp image", backend_stamp_image_path %> </li>
+          <li class="<%= select_class?(backend_store_category_path) %>"><%=link_to "Store categories", backend_store_category_path %> </li>
+          <li class="<%= select_class?(backend_store_sub_category_path) %>"><%=link_to "Store sub categories", backend_store_sub_category_path %> </li>
+          <li class="<%= select_class?(backend_sub_device_path) %>"><%=link_to "Sub devices", backend_sub_device_path %> </li>
+          <li class="<%= select_class?(backend_user_path) %>"><%=link_to "User", backend_user_path %> </li>
+          <li class="<%= select_class?(backend_user_meta_path) %>"><%=link_to "User meta", backend_user_meta_path %> </li>
+          <li class="<%= select_class?(backend_wishlist_path) %>"><%=link_to "User wishlists", backend_wishlist_path %> </li>
+         
+
+        </ul>
+      </div>
+        <div style="position: fixed; z-index: 1; margin: 0px; padding: 0px; display: none; left: 240px; top: 225px;"><div style="position: relative; height: 320px;" class="enscroll-track vertical-track"><a style="position: fixed; z-index: 1; height: 115.126px; top: 105px;" href="" class="vertical-handle"><div class="top"></div><div class="bottom"></div></a></div></div>
+    </aside>

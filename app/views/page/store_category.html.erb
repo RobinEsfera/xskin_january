@@ -1,0 +1,223 @@
+<section>
+  <div class="row">
+  <div class="xskin-products-store">
+    
+      <ul class="breadcrumbs">
+        <li> <%=link_to"Home",demo_path %>   </li>
+        <li> <%= link_to"Store",store_path %> </li>
+<% if (params[:category])
+  store_sub_cat=StoreSubCategory.where(:id=>params[:category]).first 
+  store_catgory=StoreCategory.where(:id=>store_sub_cat.store_category_id).first
+  category_list=StoreSubCategory.where(:store_category_id=>store_catgory.id)
+else
+  store_catgory=StoreCategory.where(:id=>params[:cat]).first
+  category_list=StoreSubCategory.where(:store_category_id=>store_catgory.id)
+
+end
+%>
+     
+      
+
+
+        <li><a href="store_category?cat=<%= store_catgory.id %>"><%= store_catgory.name %></a></li>
+        <% if store_sub_cat %>
+          <li class="current">
+          <a href="#"><%= store_sub_cat.name  %></a>
+          </li>
+        <% else %>
+          <li class="current">
+          <a href="#">All <%= store_catgory.name  %></a>
+          </li>
+        <% end %>
+      </ul>
+    <div class="medium-3 left">
+      
+      <div class="xskin-select-design hide-for-small-only" >
+        <form>
+        <% if store_sub_cat %>
+          <%= select_tag :category, options_from_collection_for_select(category_list, "id", "name",:selected=> store_sub_cat.id),"onchange"=>"this.form.submit()" %>
+        <% else %>
+          <%= select_tag :category, options_from_collection_for_select(category_list, "id", "name"), {:include_blank => "All #{store_catgory.name}","onchange"=>"this.form.submit()"} %>
+
+        <% end %>
+         
+        </form>
+      </div>
+
+      <div class="xskin-product-type hide-for-small-only">
+        <h6>DEVICE 
+          <span class='xskin-device-control'><i class="fa fa-angle-down"></i></span></h6>
+
+          <div class="xskin-device-list">
+
+          <% if @device.any?
+            @device.each do |device| 
+              @checked=""
+              if (@arrDevice.any? && @arrDevice.include?(device.id.to_i))
+                @checked="checked=true"
+              end
+              %>
+              <div class="xskin-device-filter">
+                <div class="xskin-device-color">
+                  <input type="checkbox" id="<%= device.name %>" device_id="<%= device.id %>" " <%= @checked %>" />
+                  <label for="<%= device.name %>"> 
+                  <span class="checkbox"></span> <%= device.name %>
+                  </label>
+                </div>
+              </div>
+              <!-- device color pick close from here -->
+          <% end 
+          end %>
+
+        </div>
+      </div>
+      <!-- product type close from here -->
+
+
+      <div class="xskin-product-type hide-for-small-only">
+        <h6>CASE TYPE <span class='xskin-case-control'><i class="fa fa-angle-down"></i></span></h6>
+
+        <div class="xskin-case-list">
+          <% if @caseData.any?
+            @caseData.each do |caseData| 
+              @checked=""
+              if (@arrCase.any? && @arrCase.include?(caseData.id.to_i))
+                @checked="checked=true"
+              end
+              %>
+              <div class="xskin-case-filter">
+                <div class="xskin-device-color">
+                  <input type="checkbox" id="<%= caseData.name %>" case_id="<%= caseData.id %>" " <%= @checked %>" />
+                  <label for="<%= caseData.name %>"> 
+                  <span class="checkbox"></span> <%= caseData.name %>
+                  </label>
+                </div>
+              </div>
+              <!-- device color pick close from here -->
+          <% end 
+          end %>        
+
+          </div>
+        </div>
+        <!-- product type close from here -->
+
+
+      <div class="xskin-product-type hide-for-small-only">
+        <h6>COLOR</h6>
+        <div class="xskin-color-filter">
+          <ul class="xskin-multiple-color">
+            <% if @color.any?
+              @color.each do |color| 
+                @checked=""
+                if (@arrColor.any? && @arrColor.include?(color.id.to_i))
+                  @checked="checked=true"
+                end
+                %>
+                <li>
+                  <input type="checkbox" id="<%= color.name %>" color_id="<%= color.id %>" " <%= @checked %>" />
+                  <label for="<%= color.name %>" style="background-color:<%= color.code %>"><span></span></label>
+                </li>
+            <% end 
+            end %>    
+         
+          </ul>
+        </div> <!-- xskin-color-filter -->
+      </div>
+      <!-- product type close from here -->
+
+      <div class="xskin-product-type hide-for-small-only">
+        <h6>price range:</h6>
+
+<div>
+  <input type="hidden" id="price_min" value="<%= @price_min %>">
+  <input type="hidden" id="price_max" value="<%= @price_max %>">
+
+  <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+</div>
+          <div id="slider-range"></div>
+        
+      </div>
+      <!-- product type close from here -->
+
+
+
+      <div class="xskin-product-type hide-for-small-only">
+        <h6>brand</h6>
+
+          <% if @brand.any?
+            @brand.each do |brand| 
+              @checked=""
+              if (@arrBrand.any? && @arrBrand.include?(brand.id.to_i))
+                @checked="checked=true"
+              end
+              %>
+              <div class="xskin-brand-filter">
+                <div class="xskin-device-color">
+                  <input type="checkbox" id="<%= brand.name %>" brand_id="<%= brand.id %>" " <%= @checked %>" />
+                  <label for="<%= brand.name %>"> 
+                  <span class="checkbox"></span> <%= brand.name %>
+                  </label>
+                </div>
+              </div>
+                <!-- device color pick close from here -->
+          <% end 
+          end %>        
+
+      </div>
+      <!-- product type close from here -->
+
+
+    </div>
+    <!-- left sidebar close from here -->
+
+
+
+    <div class="medium-9 left">
+      <div class="xskin-product-design">
+
+      <% if @product.any?
+        @product.each do |product| 
+          if (@arrColor.any?)
+            @product_image = ProductVariation.where('product_id = (?) and product_color_id IN (?)',product.id, @arrColor)
+          else
+            @product_image = ProductVariation.where(:product_id => product.id)
+          end
+            if @product_image.any?
+            @product_image.each do |product_image| 
+            %>
+            <div class="medium-4 columns left">
+            <div class="xskin-categories">
+              <div class="iphone-6">
+                <a href="/product?product=<%= product_image.id %>">
+                <%= image_tag(product_image.image.url(:medium)) %>
+              </a>
+              </div>
+              <div class="masking smooth">
+                <div class="xskin-add-to-cart">
+                  <div class="add-to-cart">
+                  <a href="/wishlist/<%= product_image.id %>"><span class="smooth cart">
+                    <%= image_tag"zoom.png" %>
+                    </span></a>
+                    <a href="/cart/<%= product_image.id %>"><span class="smooth cart your-cart">
+                    <%= image_tag"add-to-cart.png" %>
+                    </span></a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            </div>
+            <!-- single product design close from here -->
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
+      </div>
+    </div>
+
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</section>

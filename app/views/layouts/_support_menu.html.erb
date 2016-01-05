@@ -1,0 +1,16 @@
+<ul class="xskin-user-list-categories xskin-privacy-policy">
+  <li><%=link_to"Contact Us",contact_path,:class => active_class?(contact_path)%></li>
+  <li>
+  <%=link_to"Faq",faq_path,:class => active_class?(faq_path) %>
+  </li>
+  <li><a href="#">subcription</a></li>
+  <li>
+  <%= link_to"Privacy Policy",privacy_path,:class => active_class?(privacy_path) %>
+  </li>
+  <li><%=link_to"term & condition",terms_path,:class => active_class?(terms_path)%></li>
+  <li><%= link_to"affiliate",affiliate_path ,:class => active_class?(affiliate_path)%></li>
+  <li><%=link_to"Testimonial",testimonial_path ,:class => active_class?(testimonial_path) %></li>
+  <li><%=link_to"Developer",developer_path,:class => active_class?(developer_path) %></li>
+  <li><%=link_to"Careers",careers_path,:class => active_class?(careers_path) %></li>
+  <li><%=link_to"spotting",spotting_path,:class => active_class?(spotting_path) %></li>
+</ul>

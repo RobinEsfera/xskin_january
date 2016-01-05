@@ -1,0 +1,102 @@
+
+      <!-- xskin dashboard design start from here -->
+      <div class="xskin-dshboard-design">
+        <h3>Detail of Case Type "<%= @case_type.name %>"</h3>
+        <ul class="breadcrumbs">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="/backend/case_type">Case Types</a></li>
+            <li class="current">Show</li>
+        </ul>
+
+        <!-- user entry start from here -->
+        <div class="xskin-users-entry">
+            <ul class="tabs">
+            <li class="tab-title active"><a href="show_case_type"><i class="fa fa-camera"></i> Show</a></li>
+            <li class="tab-title"><a href="edit_case_type"><i class="fa fa-pencil"></i> Edit</a></li>
+            <li class="tab-title">
+              <%= link_to "<i class='fa fa-trash'></i> Delete".html_safe, "delete_case_type", method: :delete, :title => "Delete", data: { confirm: 'Are you confirm you want to delete this?' } %>
+            </li>
+          </ul>
+
+          <div class="tabs-content">
+
+  <!-- user information Start from here -->
+             <div id="Show" class="content active">
+                <div class="xskin-user-basic-information">
+                  <div class="user-info">
+                    <h4>Basic information</h4>
+
+                    <div class="medium-4 left">
+                      <span class="type-info">
+                        Name
+                      </span>
+                    </div>
+                    <div class="medium-8 left">
+                      <span class="user-infor">
+                        <%= (!@case_type.nil?) ? @case_type.name : "" %>
+                      </span>
+                    </div>
+                    <div class="medium-4 left">
+                      <span class="type-info">
+                        Case
+                      </span>
+                    </div>
+                    <div class="medium-8 left">
+                      <span class="user-infor">
+                      <% if !@case_type.nil? %>
+                        <% @case = Case.where(:id => @case_type.case_id).first %>
+                      <% end %>
+                        <%= (!@case.nil?) ? @case.name : "" %>
+                      </span>
+                    </div>
+                    <div class="medium-12 left">
+                        <span class="type-info">
+                      <div class="medium-4 left">
+                          Image
+                      </div>
+                      <div class="medium-8 left">
+                          <%= (@case_type.image.present?) ? image_tag(@case_type.image.url(:thumb)) : "" %>
+                      </div>
+                        </span>
+                    </div>
+                    <div class="medium-4 left">
+                      <span class="type-info">
+                        Is Active
+                      </span>
+                    </div>
+                    <div class="medium-8 left">
+                      <span class="user-infor">
+                        <% if @case_type.active == true %>
+                            <div class="label label-success">✓</div>
+                        <% else %>
+                            <div class="label label-danger">✘</div>
+                        <% end %>
+                      </span>
+                    </div>
+
+                    <div class="medium-4 left">
+                      <span class="type-info">
+                        Created At
+                      </span>
+                    </div>
+                    <div class="medium-8 left">
+                      <span class="user-infor">
+                        <%= (!@case_type.nil?) ? @case_type.created_at.to_formatted_s(:long) : "" %>
+                      </span>
+                    </div>
+
+                  </div><!-- /user-info -->
+                </div><!-- basic information close -->
+
+                <div class="clearfix"></div>
+             </div>
+             <!-- user information close from here -->
+
+          </div>
+
+        </div>
+        <!-- user entry close from here -->
+
+      </div>
+      <!-- xskin dashboard design close from here -->
+

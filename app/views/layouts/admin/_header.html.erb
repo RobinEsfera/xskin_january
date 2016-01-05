@@ -1,0 +1,123 @@
+<div data-offcanvas="" class="off-canvas-wrap docs-wrap move-right" id="site_admin">
+  <div class="inner-wrap">
+    <%= render "layouts/admin/sidebar" %>
+    <section>
+
+    <!-- main section start from here -->
+    <div class="main-section">
+
+      <!-- dashboard top bar start from here -->
+      <div class="xskin-dashboard-menu tab-bar">
+         <div class="medium-2 left">
+            <a class="left-off-canvas-toggle menu-icon" aria-expanded="true">
+            <i class="fa fa-bars"><span>Menu</span></i> </a>
+          </div>
+          <div class="medium-10 columns text-right">
+            <ul>
+              <!-- <li>
+                <span class="have-drop"><i class="fa fa-bell"></i>
+                <span>5</span>
+                </span>
+
+                <ul class="xskin-dropdown smooth">
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                  <li><a href="#">
+                  <div class="profile-pic">
+                    <%= image_tag("smith.jpg") %>
+                  </div>
+                  <div class="notification-title">
+                      <span class="name">John Smith</span>
+                      <span>Film festival used to be do-or-die moment for movie maker. They were where...</span>
+                  </div>
+                  </a></li>
+                </ul>
+              </li> -->
+              <li><%= link_to "Dashboard", backend_path %></li>
+              <li><%= link_to "Home", root_path %></li>
+              <li><a href="#"><%= current_user.email %></a></li>
+              <li><%=link_to"Log out",destroy_user_session_path,:method=>"delete"  %></li>
+            </ul>
+          </div>
+        </div>
+
+      <!-- dashboard top bar close from here -->

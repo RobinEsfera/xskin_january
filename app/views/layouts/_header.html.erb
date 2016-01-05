@@ -1,0 +1,237 @@
+<header>
+    <div class="row">
+      <div class="xskin-login text-right hide-for-small-only">
+        <ul class="xskin-login-language">
+          <li class="hide-for-small-only"><a data-reveal-id="xskin-currencyModal" href="#">
+          <% if cookies[:currency] %>
+            <%= cookies[:currency] %>
+          <% else %>
+          CAD ($)
+          <% end %>
+          </a></li>
+      <% if user_signed_in? %>
+            <li class="login last">
+            <%=link_to"My Account",edit_user_registration_path %>
+            </li>            
+            <li class="login last">
+            <%=link_to"Cart",cart_path  %>
+            <% if(session[:cart] && session[:cart].count > 0) %>
+              <div class="cart_icon_count"><%= session[:cart].count %></div>
+            <% end %>
+            </li>
+      <% else %>      
+          <li class="login last">
+          <%=link_to"LOGIN",new_user_session_path, :title=>"Login to start"  %>
+          </li>
+      <% end %>            
+          </ul>
+        </div>
+
+        <div class="xskin-menu-with-logo for-ipad">
+            <div class="large-4 medium-4 columns for-ipad">
+            <div class="xskin-logo">
+            <%= link_to image_tag('Xskin-logo.png'), demo_path,:class =>"logo left",:alt=>"Skin" ,:title=>"XSkin"  %>
+             
+              </div>
+              <div class="show-for-small-only mobile-search">
+                <input type="submit" value="Send" class="search_content" />
+              </div>
+            </div>
+            <!-- Xskin-logo close from here -->
+
+            <!-- Search area for only mobile -->
+           
+          <div class="large-8 medium-8 columns hide-for-small-only for-ipad">
+            <ul class="xskin-menu">
+              <li><%= link_to"MAKE YOUR CASE",make_path,:class => active_class?(make_path) %></li>
+              <li><%= link_to"STORE",store_path,:class => active_class?(store_path) %>
+                <ul class="sub-menu smooth">
+                        <% store_cat=StoreCategory.all  %>
+                        <% for store_categories in store_cat %>
+                        <li>
+                        <ul class="xskin-submenu">
+                        <span class="menu-title"><a href="/store_category?cat=<%=store_categories.id %>"><%=store_categories.name %></a></span>
+                        <%  store_sub_cat=StoreSubCategory.where(:store_category=>store_categories.id).all %>
+                        <% temp=1 
+                        for store_sub_categories in  store_sub_cat %>
+                        <% if temp ==8 %>
+                          </ul>
+                       </li>
+                       <li>
+                       <ul class="xskin-submenu">
+                        <span class="menu-title"> </span>
+                          <% end %>
+
+                        <li>
+                          <%= link_to store_sub_categories.name,store_category_path(:category=>store_sub_categories.id) %>
+                          </li>
+                          
+                        <% temp=temp+1
+                         end %>
+                       </ul>
+                       </li>
+                        <% end %>
+                        
+                        
+                       <!-- collection submenu close from here -->
+                       <li>
+                        <ul class="xskin-submenu">
+                        <span class="menu-title"><a>products</a></span>
+                          <li>
+                          <%= link_to"Gift Card",gift_path %>
+                          </li>
+                          <li><a href="#">Selfie Stick</a></li>
+                          <li><a href="#">Muku MacroWide</a></li>
+                          <li><a href="#">Selfie Pack</a></li>
+                        </ul>
+                      </li>
+                      <!-- products submenu close from here -->
+
+                    </ul>
+                  
+              </li>
+              <li><%= link_to"iPHONE6",iphone6_path,:class => active_class?(iphone6_path) %></li>
+              <li><%= link_to"APPLE WATCH",apple_watch_path,:class => active_class?(apple_watch_path) %></li>
+              <li class="xskin-search"><input type="submit" class="search_content" value="Send" /></li>
+                </ul>
+                </div>
+                <!-- Xskin menu for destop close from here -->
+                
+
+                <nav class="tab-bar show-for-small-only">
+                  <section class="left-small">
+                    <a href="#" class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
+                    </section>
+                      <section class="right tab-bar-section">
+                        <h1 class="title">Menu</h1>
+                      </section>
+                      <section class="left-small">
+                    <a href="#" class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
+                    </section>
+                      </nav>
+
+                         </div>
+                        <aside class="left-off-canvas-menu">
+                          <ul class="off-canvas-list mobile-nav">
+                            <li><label>Menu</label></li>
+                            <li class="xskin-main-menu"><%= link_to"MAKE YOUR CASE",make_path,:class => active_class?(make_path) %></li>
+                            <li class="has-submenu xskin-main-menu">
+                            <%= link_to"STORE",store_path,:class => active_class?(store_path) %>
+                              <ul class="left-submenu smooth">
+                              <li class="back"><a href="#">Back</a></li>
+                             
+                        
+        <% store_cat=StoreCategory.all  %>
+        <% for store_categories in store_cat %>
+        <li class="has-submenu"><a href="#"><%=store_categories.name %></a>
+        <ul class="left-submenu smooth">
+        <li class="back"><a href="#">Back</a></li>
+        <%  store_sub_cat=StoreSubCategory.where(:store_category=>store_categories.id).all %>
+        <% temp=1 
+        for store_sub_categories in  store_sub_cat %>
+
+          <li>
+          <%= link_to store_sub_categories.name,store_category_path(:category=>store_sub_categories.id) %>
+          </li>
+
+          <% temp=temp+1
+        end %>
+        </ul>
+        </li>
+        <% end %>
+
+<!-- collection submenu close from here -->
+<li class="has-submenu"><a href="#">Products</a>
+<ul class="left-submenu smooth">
+      <li class="back"><a href="#">Back</a></li>
+<li>
+<%= link_to"Gift Card",gift_path %>
+</li>
+<li><a href="#">Selfie Stick</a></li>
+<li><a href="#">Muku MacroWide</a></li>
+<li><a href="#">Selfie Pack</a></li>
+</ul>
+</li>
+<!-- products submenu close from here -->
+
+                                </ul>
+                            </li>
+                            <li class="xskin-main-menu"><%= link_to"iPHONE6",iphone6_path,:class => active_class?(iphone6_path) %></li>
+                            
+                            <li class="xskin-main-menu"><%= link_to"APPLE WATCH",apple_watch_path,:class => active_class?(apple_watch_path) %></li>
+                            <li class="xskin-main-menu"><a data-reveal-id="xskin-currencyModal" href="#">
+                          <% if cookies[:currency] %>
+                            <%= cookies[:currency] %>
+                          <% else %>
+                          CAD ($)
+                          <% end %>
+                          </a></li>
+                          <li class="login last xskin-main-menu">
+                            <%=link_to"Cart",cart_path  %>
+                          </li>
+                          <% if user_signed_in? %>
+                          <li class="login last has-submenu xskin-main-menu">
+                          <a href="#">My Account</a>
+                          <ul class="left-submenu smooth">
+                          <li class="back"><a href="#">Back</a></li>
+                          <li><%=link_to"My Profile",edit_user_registration_path,:class => active_class?(edit_user_registration_path) %>
+                          </li>
+                          <li class="login last">
+                          <%=link_to"My Gallery",gallery_path,:class => active_class?(gallery_path) %>
+                          </li>
+                          <li class="login last">
+                          <%=link_to"Track Order",track_path,:class => active_class?(track_path) %>
+                          </li>
+                          <li class="login last">
+                          <%=link_to"Invite Friend",invite_path,:class => active_class?(invite_path) %>
+                          </li>
+                          <li class="login last">
+                          <%=link_to"Promotion",promotion_path,:class => active_class?(promotion_path) %>
+                          </li>
+                          <li class="login last"><%=link_to"Logout",destroy_user_session_path,:method=>"delete" %></li>
+                          </ul>
+                          </li>
+                          <% else %>      
+                              <li class="login last xskin-main-menu">
+                              <%=link_to"LOGIN",new_user_session_path, :title=>"Login to start"  %>
+                              </li>
+                          <% end %>  
+                            <li>
+                            <%= link_to"Contact Us",contact_path,:class => active_class?(contact_path) %>
+                            </li>
+                            <li>
+                            <%= link_to"Faq",faq_path,:class => active_class?(faq_path) %>
+                            </li>
+                            <li>
+                            <%= link_to"Privacy Policy",privacy_path,:class => active_class?(privacy_path) %>
+                            </li>
+                            <li>
+                            <%= link_to"Terms & Conditions",terms_path,:class => active_class?(terms_path) %>
+                            </li>
+                            <li>
+                            <%= link_to"Testimonial",testimonial_path,:class => active_class?(testimonial_path) %>
+                            </li>
+                            <li>
+                            <%= link_to"Career",careers_path,:class => active_class?(careers_path) %>
+                            </li>   
+                          </ul>
+                        </aside>
+
+                        <!-- Search area for only mobile -->
+                      <div class="xskin-mobile-search">
+                          <div class="enter-keywords">
+                          <input type="text" placeholder="Search Here" autofill="true" />
+                          </div>
+                          <div class="press-enter mobile-search">
+                            <input type="submit" value="Send" />
+                          </div>
+                          <div class="xskin-cross-search-item">
+                            <%= image_tag("close.png", class: "close-search") %>
+                             </div>
+                        </div>
+                        <!-- Search area for only mobile close from here -->
+
+                        </div>
+                      <!-- row close from here -->
+                        </header>
+<%=render "layouts/currency" %>

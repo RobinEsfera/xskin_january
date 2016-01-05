@@ -1,0 +1,551 @@
+
+<div ng-app="myApp">
+
+<div ng-controller="AppController as myCtrl">
+<section class="hide-for-small-only">
+  <div class="xskin-make-your-case">
+    <div class="xskin-panel left">
+    <ul class="tabs" data-tab>
+        <li class="tab-title active"><a href="#panel1">1. Products</a></li>
+        <li class="tab-title"><a href="#panel2">2. Photos</a></li>
+        <li class="tab-title"><a href="#panel3">3. Filter</a></li>
+      </ul>
+
+      <div class="tabs-content">
+        <div class="content active" id="panel1">
+
+        <!-- Tabs start from here -->
+        <div class="xskin-make-your-case-products-tabs">
+          <ul class="tabs" data-tab role="tablist">
+            <li class="tab-title active" role="presentation"><a href="#panel2-1" role="tab" tabindex="0" aria-selected="true" aria-controls="panel2-1">
+            <p><%= image_tag "icon_make_device.png" %></p>Device <p><i class="fa fa-angle-down"></i></p></a></li>
+            <li class="tab-title" role="presentation"><a href="#panel2-2" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-2"><p><%= image_tag "icon_make_case.png" %></p>Case <p><i class="fa fa-angle-down"></i></p></a></li>
+            <li class="tab-title" role="presentation"><a href="#panel2-23" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-23"><p><%= image_tag "icon_make_layout.png" %></p>Layout <p><i class="fa fa-angle-down"></i></p></a></li>
+          </ul>
+          <div class="tabs-content">
+            <section role="tabpanel" aria-hidden="false" class="content  active" id="panel2-1">
+              <!-- Accordion start from here -->
+        <ul class="accordion" data-accordion role="tablist">
+
+        <% for make_device in @make_devices %>
+ 
+         <li class="accordion-navigation">
+          <a href="#panel_<%=make_device.id %>" role="tab" id="panel_<%=make_device.id %>-heading" aria-controls="panel_<%=make_device.id %>"><%=make_device.name %> <span class="right"><i class="fa fa-angle-right"></i></span></a>
+          <% sub_device=SubDevice.where(:device_id=>make_device.id) %>          
+          <% if sub_device.count >0 %>
+          <div id="panel_<%=make_device.id %>" class="content <%=  @device_id == make_device.id ? 'active' : '' %>" role="tabpanel" aria-labelledby="panel_<%=make_device.id %>-heading">
+            <ul class="product-list">
+            <% for sub_devices in sub_device %>
+              <li class="<%=  @sub_device_id == sub_devices.id.to_s ? 'active' : '' %>"><a href="<%=make_path(:device=>sub_devices.id) %>"><%= sub_devices.name %></a></li>
+            <% end %>
+            </ul>
+          </div>
+          <% end %>
+        </li>
+        <% 
+         end %>         
+      </ul>
+      <!-- Accordion close from here -->
+            </section>
+            <section role="tabpanel" aria-hidden="true" class="content" id="panel2-2">
+              <ul class="multiple-case">
+
+              <% if @cases.any? %> 
+              <% @i = 1 %>
+              <% for case_device in @cases %>
+              <li class="<%= (@i == 1) ? "case-active" : " " %>" data-case_id="<%= case_device.id %>">
+                  <div class="small-5 left text-center">
+                    <%= image_tag case_device.image.url(:thumb) %>
+                  </div>
+                  <div class="small-7 left">
+                    <h4><%=case_device.name %></h4>
+                    <sapn class="your-case-color">Black</sapn>
+                  </div>
+                </li>
+                <% @i = @i+1 %>
+              <% end %>
+              <% end %>
+                <!-- <li>
+                  <div class="small-5 left text-center">
+                    <%= image_tag "case01.png" %>
+                  </div>
+                  <div class="small-7 left">
+                    <h4>Bumper Case</h4>
+                    <sapn class="your-case-color">Black</sapn>
+                  </div>
+                </li>
+                <li>
+                  <div class="small-5 left text-center">
+                    <%= image_tag "case02.png" %>
+                  </div>
+                  <div class="small-7 left">
+                    <h4>Classic Snap</h4>
+                    <sapn class="your-case-color">Frosty White</sapn>
+                  </div>
+                </li>
+                <li>
+                  <div class="small-5 left text-center">
+                    <%= image_tag "case03.png" %>
+                  </div>
+                  <div class="small-7 left">
+                    <h4>Wood Case</h4>
+                    <sapn class="your-case-color">Maple-wood Crafted Case</sapn>
+                  </div>
+                </li> -->
+              </ul>
+            </section>
+            <section role="tabpanel" aria-hidden="true" class="content" id="panel2-23">
+              <ul class="xskin-case-layout">
+                <% if @layouts.any? %>
+                <% @layouts.each do |layouts| %>
+                  <li ng-click="readAttr('<%= layouts.name %>')"><a href="#" data-layout_id="<%= layouts.id %>" data-lyt="<%= layouts.name %>"><%= image_tag(layouts.image.url(:thumb)) %></a></li>
+                <% end %>
+                <% end %>
+
+<!--                 <li><a href="#"><%= image_tag "make_layout01.png" %></a></li>
+                <li><a href="#"><%= image_tag "make_layout02.png" %></a></li>
+                <li><a href="#"><%= image_tag "make_layout03.png" %></a></li>
+                <li><a href="#"><%= image_tag "make_layout04.png" %></a></li>
+                <li><a href="#"><%= image_tag "make_layout05.png" %></a></li>
+                <li><a href="#"><%= image_tag "make_layout06.png" %></a></li>
+                <li><a href="#"><%= image_tag "make_layout07.png" %></a></li>
+                <li><a href="#"><%= image_tag "make_layout08.png" %></a></li>
+                <li><a href="#"><%= image_tag "make_layout09.png" %></a></li> -->
+              </ul>
+            </section>
+          </div>
+        <!-- Tabs close from here -->
+        </div>
+
+
+        </div>
+        <div class="content" id="panel2">
+          
+          <div class="xskin-make-your-case-products-tabs upload-your-case-pic">
+          <ul role="tablist" data-tab="" class="tabs">
+            <li role="presentation" class="tab-title active"><a aria-controls="panel2-21" aria-selected="true" tabindex="0" role="tab" href="#panel2-21">
+            <p><i class="fa fa-instagram"></i></p>Instagram <p><i class="fa fa-angle-down"></i></p></a></li>
+            <li role="presentation" class="tab-title"><a aria-controls="panel2-22" aria-selected="false" tabindex="0" role="tab" href="#panel2-22"><p><i class="fa fa-facebook"></i></p>Facebook <p><i class="fa fa-angle-down"></i></p></a></li>
+            <li role="presentation" class="tab-title"><a aria-controls="panel2-9" aria-selected="false" tabindex="0" role="tab" href="#panel2-9"><p><i class="fa fa-upload"></i></p>Upload <p><i class="fa fa-angle-down"></i></p></a></li>
+            <li role="presentation" class="tab-title"><a aria-controls="panel2-24" aria-selected="false" tabindex="0" role="tab" href="#panel2-24"><p><%= image_tag "stamp.png" %></p>Stamp <p><i class="fa fa-angle-down"></i></p></a></li>
+          </ul>
+          <div class="tabs-content">
+            <section id="panel2-21" class="content  active" aria-hidden="false" role="tabpanel">
+              
+              <div class="connect-with-social-media">
+                <h2>Connect to Instagram!</h2>
+                <span class="your-case-color">Connect to your Instagram account to customize your case.</span>
+                <div class="social-connect-button">
+                  <a href="#"><i class="fa fa-instagram"></i>Instagram</a>
+                </div>
+              </div>
+
+            </section>
+            <section id="panel2-22" class="content" aria-hidden="true" role="tabpanel">
+              <div class="connect-with-social-media">
+                <h2>Connect to Facebook!</h2>
+                <span class="your-case-color">Connect to your Facebook account to customize your case.</span>
+                <div class="social-connect-button facebook">
+                  <a href="#"><i class="fa fa-facebook"></i>Facebook</a>
+                </div>
+              </div>
+            </section>
+            <section id="panel2-9" class="content" aria-hidden="true" role="tabpanel">
+              <div class="upload-pic text-center">
+              
+                <%= form_for :upload, :url => {action: 'upload_image'}, :html => {id: 'picture-dropzone', class: :dropzone, multipart: true} do |f| %>
+                  <%= f.hidden_field :image %>
+                <% end %>
+              </div>
+<div class="xskin-all-stamps list-images">
+    <ul>
+  <% if(cookies[:image_upload]) %>
+    <% @images_upload = cookies[:image_upload].split(", ").map(&:to_s)
+    @images_upload.each do |picture| %>
+      <li>
+        <img src="uploads/cookie_upload/<%= picture %>" alt="<%= picture %>" class="cookie-image"/>
+        <span class="xskin-overlay smooth"><i class="fa fa-close"></i></span>
+      </li>
+    <% end %>
+  <% end %>
+    </ul>
+</div>
+             
+      <div class="clearfix"></div>
+            </section>
+            <section id="panel2-24" class="content" aria-hidden="true" role="tabpanel">
+              <ul class="your-upload-pic pic-library">
+                <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+                  <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+                  <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+                  <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+                <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+
+                  <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+
+                  <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+
+                  <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+                  <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+
+                  <li>
+                <a href="#">
+                <div class="small-4 columns">
+                  <%= image_tag "your-upload-pic.jpg" %>
+                </div>
+                <div class="small-8 left">
+                <div class="large-10 small-10 medium-9 left">
+                  <p class="your-case-color">The Artchives Extra</p>
+                  <span class="xskin-value">Free</span>
+                  </div>
+                  <!-- content close from here -->
+
+                  <div class="large-2 small-2 medium-3 left">
+                  <div class="xskin-go-ahead">
+                  <div class="xskin-go-forward">
+                  <i class="fa fa-angle-right"></i>
+                  </div>
+                  </div>
+                  </div>
+                  <!-- go album folder icon close from here -->
+                  </div>
+                  </a>
+                  </li>
+
+                 </ul>
+            </section>
+          </div>
+        <!-- Tabs close from here -->
+        </div>
+
+
+
+        </div>
+        <div class="content" id="panel3">
+           <div class="content" id="panel2">
+          <ul class="xskin-your-own-case">
+          <li class="filter-your-product text-center">
+          <%= image_tag "icon_make_filter.png" %>
+            <sapn class="your-case-color">Filter</sapn>
+            <div class="fliter-icon"><i class="fa fa-angle-down"></i></div>
+          </li>
+            <li class="selected" id="resetbtn"><a href="#"><i class="fa fa-check"></i> none</a></li>
+
+            <li id="brightnessbtn"><a href="#">brightness</a></li>
+            <li id="noisebtn"><a href="#">Noise</a></li>
+            <li id="sepiabtn"><a href="#">Sepia</a></li>
+            <li id="contrastbtn"><a href="#">Contrast</a></li>
+            <li id="colorbtn"><a href="#">Colorize</a></li>
+            <li id="vintagebtn"><a href="#">Vintage</a></li>
+            <li id="lomobtn"><a href="#">Lomo</a></li>
+            <li id="embossbtn"><a href="#">Emboss</a></li>
+            <li id="tiltshiftbtn"><a href="#">Tilt Shift</a></li>
+            <li id="radialblurbtn"><a href="#">Radial Blur</a></li>
+            <li id="edgeenhancebtn"><a href="#">Edge Enhance</a></li>
+            <li id="posterizebtn"><a href="#">Posterize</a></li>
+            <li id="claritybtn"><a href="#">Clarity</a></li>
+            <li id="orangepeelbtn"><a href="#">Orange Peel</a></li>
+            <li id="sincitybtn"><a href="#">Sin City</a></li>
+            <li id="sunrisebtn"><a href="#">Sun Rise</a></li>
+            <li id="crossprocessbtn"><a href="#">Cross Process</a></li>
+            <li id="hazydaysbtn"><a href="#">Hazy</a></li>
+            <li id="lovebtn"><a href="#">Love</a></li>
+            <li id="grungybtn"><a href="#">Grungy</a></li>
+            <li id="jarquesbtn"><a href="#">Jarques</a></li>
+            <li id="pinholebtn"><a href="#">Pin Hole</a></li>
+            <li id="oldbootbtn"><a href="#">Old Boot</a></li>
+            <li id="glowingsunbtn"><a href="#">Glow Sun</a></li>
+            <li id="hdrbtn"><a href="#">HDR Effect</a></li>
+            <li id="oldpaperbtn"><a href="#">Old Paper</a></li>
+            <li id="pleasantbtn"><a href="#">Pleasant</a></li>
+          </ul>
+        </div>
+        </div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js'></script>
+      </div>
+      <div class="user-can-save-your-design">
+      <div class="xskin-save-design hide-for-small-only">
+        <a href="#">save design</a>
+      </div>
+      </div>
+
+
+      <div class="clearfix"></div>
+      <div class="xskin-save-design show-for-small-only">
+        <a href="#">save design</a>
+      </div>
+  </div>
+  <!-- left panel close from here -->
+
+  <div class="xskin-your-design left text-center">
+    <div class="large-10 small-12 left">
+    <div class="large-8 left small-12">
+        <div class="design-template" data-tpl="{{ layout }}">
+          <div ng-repeat="x in grids" class="placeholder grabbable image-transformable ui-droppable" data-tpid="{{ $index + 1 }}" style="top:{{ x.top}}px; left:{{ x.left}}px; width:{{ x.width}}px; height:{{ x.height}}px;" aria-disabled="false">{{ $index + 1 }}</div>
+      </div>
+      <% if !@case_first.nil? %>
+        <%= image_tag(@case_first.product_image.url()) %>
+      <% else %>
+        <%= image_tag "iphone-back-design.png" %>
+      <% end %>
+        <div class="show-for-small-only">
+          <p class="product-name"><%= @sub_device.name %></p>
+        <h3 class="product-price">$ <%= @sub_device.price %></h3>
+        </div>
+        </div>
+        <div class="large-4 left medium-12 hide-for-small-only">
+
+  <canvas id="canvas"></canvas>
+        <div class="iphone-6-plus-case">
+          <p class="product-name"><%= @sub_device.name %></p>
+          <h3 class="product-price">$ <%= @sub_device.price %></h3>
+          </div>
+        </div>
+    </div>
+  <div class="large-2 small-12 left">
+    <div class="free-shipping-need-help text-right">
+        <a href="#">free shipping need help?</a>
+      </div>
+     </div>
+  </div>
+  <!-- your design close from here -->
+
+</section>
+
+<div class="clearfix"></div>
+<section class="show-for-small-only">
+  <% mobile=MakeMobilePage.all.first  
+  if !mobile.nil? && mobile.background
+%>
+<style type="text/css">
+.xskin-costom-your-case
+{
+  background-image: url("<%= mobile.background.url %>");
+}
+</style>
+<%
+  end
+  %>
+
+  <div class="xskin-costom-your-case text-center">
+    <h3>We created the app so you can here.
+    <% if !mobile.nil? && mobile.title  %>
+    <a href="#"><%=mobile.title%></a> here
+    <%else%>
+    <a href="#">Customize Your Case</a> here.
+    <% end %>
+
+    </h3>
+<% if !mobile.nil? %>
+    <div class="costom-app-icon">
+      <a href="#">
+      <%= image_tag mobile.app_icon.url %></a>
+    </div>
+    <a href="#" class="button">
+      <%=mobile.dowanload_button_text %>
+    </a>
+<% end %>
+
+  </div>
+  <%= render"layouts/footer" %>
+</section>
+</div>
+</div>

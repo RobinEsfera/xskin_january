@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <meta name="description" content="XSkin - Case with your Instagram, Facebook and personal photos, and we use our patent pending technology to turn it into a real iPhone 6S/6/5S/5C/5 / iPhone 4S/4 / iPad 4/3/2 / iPod Touch 5/4 / Samsung Galaxy S4/III/II case.">
+    <meta name="author" content="XSkin">
+    <meta name="copyright" content="XSkin, Copyright (c) 2015">
+    <title><%= content_for?(:title) ? yield(:title) : "xSkiN" %></title>
+ <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300italic,300,400italic,600,600italic,700,700italic,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="<%= ActionController::Base.helpers.asset_path('favicon.png') %>" type="image/png" sizes="16x16"> 
+
+    <%= stylesheet_link_tag    "application" %>
+       <%= csrf_meta_tags %>
+  </head>
+
+  <body data-no-turbolink class="<%=controller.controller_name%>_<%= controller.action_name%>">
+  <div data-offcanvas="" class="off-canvas-wrap docs-wrap">
+        <div class="inner-wrap">
+        <% if (controller.controller_name=='sessions' && controller.action_name=="new") || (controller.controller_name=='registrations' && controller.action_name=="new"||controller.action_name=='make') %>
+        <% if controller.action_name=='make'%>
+          <%= render "layouts/make_header" %>
+        <% end %>
+        <% else %>
+          <%= render 'layouts/header'  %>
+        <% end %>
+        <%= render 'layouts/messages' %>  
+       <%= yield %>
+    <a href="#" class="exit-off-canvas"></a>
+    </div>
+    </div>
+ <%= javascript_include_tag "vendor/modernizr" %>
+<%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+ <% if controller.action_name=='make' %>
+
+ <% else %>
+<%= render 'layouts/footer'  %>
+<% end %>
+  </body>
+</html>

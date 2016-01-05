@@ -1,0 +1,1016 @@
+@media (min-width: 1820px) and (max-width: 2500px){
+	.xskin-panel{width: 18%;}
+	.xskin-your-design{width: 82%;}
+	.tabs-content section, .xskin-your-own-case{max-height: 100%;}
+	.tabs-content section{max-height: 550px;}
+	.xskin-your-own-case{max-height: 100%;}
+	.free-shipping-need-help{
+		position: absolute;
+	}
+}
+@media (max-width: 1199px){
+	.pic-library .your-case-color, .upload-pic, .accordion .accordion-navigation ul.product-list li a{
+		font-size: 15px;
+	}
+	.pic-library .xskin-value{
+		font-size: 13px;
+	}
+	.xskin-go-forward i{
+		height: 70px;
+	}
+	.xskin-make-your-case-products-tabs .tabs .tab-title p i{
+		font-size: 28px;
+	}
+	.xskin-make-your-case-products-tabs .tabs li{
+		height: 100px;
+	}
+	.xskin-make-your-case-products-tabs.upload-your-case-pic .tabs li.tab-title p:nth-of-type(1){
+		height: 28px;
+	}
+	.xskin-make-your-case-products-tabs.upload-your-case-pic .tabs li img{
+		max-width: 28px;
+	}
+	.xskin-make-your-case .tabs a{
+		font-size: 18px;
+		height: 50px;
+		line-height: 50px;
+	}
+	.xskin-make-your-case-products-tabs .tabs .tab-title p img{
+		max-width: 20px;
+	}
+	.accordion .accordion-navigation a, .accordion .accordion-navigation.active a{
+		font-size: 18px;
+	}
+	.connect-with-social-media h2, .xskin-go-forward i{
+		font-size: 29px;
+		line-height: normal;
+	}
+	.connect-with-social-media{
+		padding: 20px 20px;
+	}
+	.social-connect-button{
+		margin: 15px 0 0;
+	}
+	.upload-pic.text-center > p, ul.xskin-your-own-case li a{
+		font-size: 20px;
+	}
+	.upload-pic{
+		padding: 20px;
+	}
+	ul.xskin-your-own-case li a{
+		height: 60px;
+		line-height: 60px;
+	}
+
+}
+	@media (max-width: 1024px){
+		header{
+			position: relative;
+		}
+	.masking{
+		opacity: 1;
+		background-color: rgba(0, 0, 0, 0.02);
+	}
+	.tabs-content section, .xskin-your-own-case, .your-upload-pic.pic-library{
+		max-height: 400px;
+	}
+	.iphone-6-plus-case {
+	  margin: 20px 0 0;
+	}
+	.free-shipping-need-help{
+		position: absolute;
+	}
+	.social-icon ul{
+		display: inline-block;
+		text-align: center;
+		width: 100%;
+	}
+	.social-icon ul li{
+		float: none;
+		display: inline-block;
+		margin: 0 5px 7px;
+	}
+	.social-icon ul li a {
+	  font-size: 18px;
+	  height: 25px;
+	  line-height: 25px;
+	  width: 25px;
+	}
+	.tabs-content section{max-height: 350px;}
+	.xskin-your-own-case{max-height: 100%;}
+	.product-name{margin-top: 15px; font-size: 45px;}
+	.xskin-your-design img{
+		max-width: 230px;
+	}
+	.play-store a {
+	  margin-right: 20px;
+	  width: 44%;
+	}
+	.play-store a:last-child{
+		margin-right: 0;
+	}
+	.sub-menu{
+		min-width: 100%;
+		left: 0;
+	}
+	.for-ipad{
+		position: inherit;
+	}
+}
+@media (max-width: 1000px){
+	h1{
+		font-size: 50px;
+	}
+	h2{
+		font-size: 37px;
+	}
+	h3{
+		font-size: 28px;
+	}
+	h4{
+		font-size: 23px;
+	}
+	.button{
+		max-width: 95px;
+		font-size: 15px;
+	}
+	.xskin-slider .button{
+		max-width: 135px;
+		font-size: 16px;
+	}
+	.row{
+		max-width: 100%; 
+	}
+	.xskin-logo img{
+		margin: 0;
+		max-width: 100px;
+	}
+	.xskin-mobile-search .mobile-search{
+		left: 15px;
+	}
+	.enter-keywords{
+		padding-left: 10px;
+	}
+	.xskin-cross-search-item{
+		right: 15px;
+	}
+	ul.xskin-menu li a{
+		font-size: 18px;
+		padding: 7px 0px; 
+	}
+	ul.xskin-menu li:first-child a{
+		min-width: 130px;
+	}
+	ul.xskin-menu li:nth-of-type(2) a{
+		min-width: 50px;
+	}
+	ul.xskin-menu li:nth-of-type(3) a{
+		min-width: 70px;
+	}
+	ul.xskin-menu li:nth-of-type(4) a{
+		min-width: 107px;
+	}
+	.xskin-login, .xskin-content-section{
+		padding: 0 15px;
+	}
+	ul.xskin-menu li{
+		margin: 0 2px;
+	}
+	ul.xskin-menu li.xskin-search input{
+		width: 17px;
+		margin-top: 12px;
+		background-size: 17px;
+	}
+	.xskin-top-design h5{
+		font-size: 20px;
+	}
+	.xskin-content-section{
+		margin: 15px 0 25px;
+	}
+	.cart, .cart.your-cart{
+		height: 35px;
+		line-height: 31px;
+		width: 35px;
+	}
+	.add-to-cart img{
+		max-width: 19px;
+	}
+	.xskin-usergallery .add-to-cart i {
+	  font-size: 19px;
+	  line-height: 35px;
+	}
+	footer{
+		padding: 35px 15px;
+	}
+	.xskin-footer-links li a{
+		font-size: 14px;
+	}
+	.newsletter form label{
+		font-size: 19px;
+	}
+	.submit{
+		margin-top: 28px;
+	}
+	.submit input{
+		font-size: 15px;
+	}
+
+	/** internal pages **/
+	.slick-slider{
+		overflow: hidden;
+	}
+	.login-signup-to-xskin{
+		margin-top: 19%;
+	}
+	.login-signup-to-xskin h1{
+		font-size: 45px;
+	}
+	.xskin-login-section{
+		padding: 20px 15px;
+		overflow: hidden;
+		margin-bottom: 0;
+	}
+	.xskin-login-with-instagram{
+		margin-right: 0;
+		float: right;
+	}
+	.xskin-login-with-facebook span.login-icon, .xskin-login-with-instagram span.login-icon{
+		font-size: 30px;
+		width: 60px;
+	}
+	.xskin-login-with-facebook span.log-in, .xskin-login-with-instagram span.log-in{
+		font-size: 30px;
+	}
+	.xskin-login-form input, .xskin-login-form .button{
+		height: 50px;
+		font-size: 25px;
+	}
+	.xskin-login-form a.forget-pass{
+		font-size: 22px;
+	}
+	.xskin-login-form .button{
+		line-height: 50px;
+		font-size: 20px;
+	}
+
+	/** store page **/
+		.no-margin{
+		padding: 7.5px 0;
+	}
+	.xskin-products-store{
+		padding: 0 15px;
+		margin: 20px 0;
+	}
+	.xskin-product-item{
+		padding: 10px 7.5px 0px;
+	}
+	ul.sub-menu ul.xskin-submenu li a{
+		font-size: 18px;
+	}
+	ul.xskin-menu ul.sub-menu li{
+		margin: 0;
+	}
+	ul.breadcrumbs{
+		padding: 0;
+	}
+	.breadcrumbs > *::before {
+	  font-size: 11px;
+	  margin: 0 2px;
+	}
+	ul.breadcrumbs li a{
+		font-size: 12px;
+	}
+	.xskin-select-design form select{
+		font-size: 14px;
+		background-size: 17px auto;
+		height: 30px;
+	}
+	.xskin-select-design, .xskin-product-type{
+		margin: 8px 0;
+	}
+	.xskin-product-type h6{
+		font-size: 17px;
+	}
+	.xskin-product-type h6 span{
+		font-size: 25px;
+	}
+	.xskin-product-type h6 span i{
+		top: 0;
+	}
+	.xskin-device-color input[type="checkbox"] + label{
+		margin: 0 0 5px;
+		font-size: 18px;
+	}
+	.xskin-multiple-color li{
+		margin: 0 7px 0 0;
+	}
+	.xskin-product-description, 
+	.xskin-cart, .xskin-user-profile, 
+	.xskin-gift-card
+	{
+		padding: 0 15px;
+	}
+	.thumbnail-views li{
+		margin: 0 7px 0 0;
+	}
+	.cart-overview{
+		margin-left: 15px;
+	}
+	.total-cart-price form .checkout input[type="submit"]{
+		height: 45px;
+		font-size: 20px;
+	}
+	.shipping-cart{
+		padding: 15px;
+		margin-bottom: 0;
+	}
+	.cart-product.last{
+		margin-bottom: 0;
+	}
+	.shipping-cart-product p strong{
+		display: block;
+	}
+	.shipping-cart-product p:last-child strong{
+		display: inline
+	}
+	.happy, .shipping-cart p{
+		font-size: 12px;
+		margin: 0 0 6px;
+	}
+	.cart-overview{
+		margin:15px 0 ;
+	}
+	.edit-pass .button, .actions input.button, form .button.alert, .shipping-edit-details form input[type="submit"]  {
+	  max-width: 100%;
+	}.invite-friend h5{
+		font-size: 20px;
+	}
+	.customize-my-case h2, 
+	.shop-design-collection h2, 
+	.range-of-precisely-design h2{
+		font-size: 35px;
+	}
+	.customize-my-case h1, 
+	.customize-my-case h2, 
+	.shop-design-collection h1, 
+	.shop-design-collection h2, 
+	.range-of-precisely-design h1, 
+	.range-of-precisely-design h2{
+		font-size: 40px;
+		margin: 5px 0 0;
+	}
+	.customize-my-case .button, 
+	.shop-design-collection .button, 
+	.range-of-precisely-design .button{
+		max-width: 100%;
+	}
+	.customize-my-case{
+		top: 12%;
+	}
+	.xskin-panel,
+	.user-can-save-your-design{
+		width: 35%;
+	}
+	.xskin-your-design{
+		width: 65%;
+	}
+	.xskin-your-design img{
+		max-width: 200px;
+	}
+	.product-name{
+		margin-top: 15px;
+		font-size: 35px;
+	}
+	.product-price, .connect-with-social-media h2{
+		font-size: 28px;
+		line-height: normal;
+	}
+	.xskin-make-your-case .tabs a{
+		font-size: 18px;
+	}
+	.upload-pic{
+		padding: 20px 10px;
+	}
+	.upload-pic.text-center > p{
+		font-size: 22px;
+	}
+	.your-upload-pic.pic-library li{
+		width: 100%;
+	}
+	.your-upload-pic.pic-library li img{
+		max-width: 100%;
+	}
+	.promotion h5{
+		font-size: 20px;
+	}
+	.xskin-case-type{
+		margin: 0 3px;
+	}
+	.xskin-case-type button.select-case-type, a.popular-latest, .collection-pagination .pagination li.back a, .collection-pagination .pagination li.next a{
+		font-size: 12px;
+		padding: 0 5px;
+	}
+	.select-your-case-color li span, .choose-color{
+		height: 17px;
+		width: 17px;
+	}
+	.select-your-case-color li{
+		width: auto;
+	}
+	ul.xskin-collections li{
+		width: 31.3%;
+	}
+	ul.xskin-collections li, ul.xskin-collections li:nth-child(4n+4){
+		margin-right: 15px;
+	}
+	ul.xskin-collections li:nth-child(3n+3){
+		margin-right: 0px;
+	}
+	.pagination-centered ul.pagination li{
+		margin: 0 3px;
+	}
+	.product-item-for-collection h5 a, .device-name, .collection-pagination .pagination li a{
+		font-size: 13px;
+	}
+	ul.xskin-social-media-icons li{
+		width: auto;
+		margin: 0;
+	}
+	ul.xskin-social-media-icons li a{
+		width: 25px;
+		margin: 0 3px;
+		height: 25px;
+	}
+	ul.xskin-social-media-icons li a i {
+	  font-size: 16px;
+	  line-height: 25px;
+	}
+	.tabs-content section{max-height: 500px;}
+	.xskin-your-design img{
+		max-width: 100%;
+	}
+	.forgot-password h2{
+		font-size: 36px;
+	}
+	.login-signup-to-xskin{
+		max-width: 450px;
+	}
+	.back-or-sign-up{
+		font-size: 16px;
+	}
+}
+@media (max-width: 767px){
+	body{
+		overflow-x: hidden; 
+	}
+	.inner-wrap{
+		min-height: 700px;
+	}
+	.xskin-content-section{
+		padding: 0;
+	}
+	.xskin-apple-watches .medium-3{
+		width: 50%;
+	}
+	.xskin-user-profile-data{
+		width: 97%;
+	}
+	.xskin-user-list-categories li a {
+	  font-size: 18px;
+	  height: 50px;
+	  line-height: 50px;
+	  padding: 0 10px;
+	}
+	.forgot-password .actions input[type="submit"] {
+	  font-size: 12px;
+	  height: 45px;
+	  line-height: 45px;
+	  margin: 0;
+	  padding: 0 10px;
+	}
+	.forgot-password h2{
+		font-size: 32px;
+	}
+	ul.breadcrumbs{
+		margin: 0 0 10px;
+	}
+	.masking{
+		background: none;
+	}
+	ul.discount-in-dollar li p.number-of-discount{
+		font-size: 27px;
+	}
+}
+@media (max-width: 640px){
+	.for-ipad {
+	  position: relative;
+	}
+	header {
+	  position: initial;
+	}
+	.xskin-login{
+		text-align: center !important;
+		margin-bottom: 5px;
+	}
+	ul.xskin-login-language li{
+		border-right: 1px solid #fff;
+		margin: 0;
+	}
+	ul.xskin-login-language li a{
+		padding: 0 3px;
+	}
+	ul.xskin-login-language li.login a{
+		border-left: 0 none;
+	}
+	ul.xskin-login-language li.last, ul.xskin-login-language li.last a{
+		border-right: 0 none
+	}
+	.xskin-menu-with-logo{
+		border-color: #999898;
+	}
+	.xskin-logo{
+		margin: 10px 0 0;
+		text-align: center;
+	}
+	.xskin-logo img{
+		max-width: 85px;
+	}
+	.tab-bar {
+	  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	  left: 0;
+	  position: absolute;
+	  top: 0px;
+	  width: 40px;
+	}
+	.tab-bar .menu-icon span::after{
+		top: 15px;
+	}
+	.left-small{
+		border:0 none;
+	}
+	ul.off-canvas-list li a:hover {
+	  background: #de127a none repeat scroll 0 0;
+	  color: #fff;
+	}
+	.tab-bar .menu-icon span::after {
+	  box-shadow: none;
+	  content: url("../assets/toogle-bar.png");
+	  width: 40px;
+	}
+	.tab-bar .menu-icon span:hover::after{
+		box-shadow: none;
+	}
+	.tab-bar-section{
+		display: none;
+	}
+	.tab-bar .menu-icon{
+		text-indent: 0;
+	}
+	.mobile-search{
+		position: absolute;
+		right: 15px;
+		top: 13px;
+	}
+	.mobile-search input{
+		background-size: 22px;
+		height: 22px;
+		width: 22px;
+		margin-top: 0; 
+	}
+	.xskin-slider{
+		height: 300px;
+	}
+	.xskin-slider .slide-cap{
+		border-width: 2px;
+	}
+	.mob-no-padding{padding: 0;}
+	.xskin-content-section .slick-slider{margin: 0;}
+	.iphone-6, .iphone-6:last-child{
+		margin: 0 0 10px;
+	}
+	.xskin-top-design .slide-cap{
+		padding: 30px 0;
+	}
+	.xskin-login, .xskin-content-section{
+		padding: 0;
+	}
+	.xskin-top-design .make-your-own-skin{
+		vertical-align: middle;
+	}
+	.xskin-top-design .button{
+		margin: 15px 0 0;
+	}
+	.iphone-6.mobile-view{
+		width: 50%;
+		float: left;
+	}
+	.play-store a {
+	  margin: 0;
+	  padding: 0 10px;
+	  width: 50%;
+	  text-align: center;
+	}
+	.social-icon{
+		text-align: center;
+	}
+	.social-icon ul{
+		width: 180px;
+	}
+	.social-icon ul li{
+		margin-bottom: 15px;
+	}
+	.newsletter form{
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+	}
+	.newsletter form label{
+		text-align: left;
+	}
+	.newsletter{
+		margin: 20px 0;
+	}
+	.newsletter form .field, .submit{
+		width: 72%;
+		float: none;
+		display: inline-block;
+		vertical-align: top;
+	}
+	.submit{
+		width: 72px;
+	}
+	.login-signup-to-xskin h1{
+		font-size: 30px;
+	}
+	.xskin-login-section{
+		padding: 15px;
+	}
+	.login-signup-to-xskin{
+		padding: 0 15px;
+	}
+	.xskin-login-form{
+		margin-top: 15px;
+	}
+	.xskin-login-with-facebook a, .xskin-login-with-instagram a{
+		width: 100%;
+		display: inline-block;
+	}
+	.xskin-login-with-facebook, .xskin-login-with-instagram{
+		width: 100%;
+		margin: 0 0 15px;
+		display: inline-block;
+		text-align: center;
+	}
+	.xskin-login-with-facebook span.login-icon, .xskin-login-with-instagram span.login-icon, .xskin-login-with-facebook span.log-in, .xskin-login-with-instagram span.log-in{
+		display: inline-block;
+		width: auto;
+		padding: 0 7px;
+	}
+	.xskin-login-top-section, .sign-in-forget-pass{
+		padding: 0;
+	}
+	.xskin-login-form input, .xskin-login-form .button {
+	  font-size: 17px;
+	  height: 40px;
+	  padding: 0 15px;
+	}
+	.xskin-login-form a.forget-pass{
+		font-size: 20px;
+	}
+	.xskin-login-form .button{
+		line-height: 40px;
+	}
+	.sign-in-forget-pass{
+		margin: 0 0 20px;
+	}
+	.xskin-login-form form .medium-6{
+		width: 100%;
+		text-align: left !important;
+	}
+	.back-or-sign-up{
+		font-size: 20px;
+		margin: 0 0 5px;
+		display: inline-block;
+	}
+
+	/** store page **/ 
+	.xskin-product-item .iphone-6{
+		margin: 0 0 15px;
+	}
+	.xskin-store-page-slider .slide-cap{
+		padding: 10px 0;
+		max-width: 250px;
+	}
+	.xskin-store-page-slider .xskin-slider{
+		height: auto; 
+	}
+	.xskin-store-page-slider .slide-cap h2{
+		font-size: 22px;
+	}
+	.xskin-store-page-slider .slide-cap .button {
+	  font-size: 14px;
+	  height: 29px;
+	  line-height: 29px;
+	  margin-top: 5px;
+	  max-width: 90px;
+	}
+	.xskin-product-item .small-12, .xskin-product-design .medium-4{
+		width: 50%;
+		padding: 0 7.5px;
+	}
+	.thumbnail-views, .social-icons-with-cart{
+		display: inline-block;
+		width: 100%;
+		text-align: center;
+	}
+	.thumbnail-views li{
+		float: none;
+		display: inline-block;
+		width: 22%;
+		margin-right: 2.5%;
+	}
+	.xskin-about-product, .social-icons-with-cart{
+		padding: 5px 0 0;
+	}
+	.product-title h2{
+		margin-top: 0;
+	}
+	.product-title h2, .price{
+		font-size: 30px;
+	}
+	.product-title h2 span{
+		font-size: 20px;
+	}
+	span.pro-field{
+		width: 67%;
+	}
+	.social-icons-with-cart li{
+		display: inline-block;
+		margin: 0 5px;
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+	}
+	.social-icons-with-cart li i{
+		font-size: 21px;
+		line-height: 40px;
+	}
+	.social-icons-with-cart img {
+	  max-width: 20px;
+	}
+	.social-icons-with-cart .add-fav, .social-icons-with-cart .add-cart{
+		margin: 0 10px 10px;
+		width: 45px;
+		height: 45px;
+		line-height: 45px;
+	}
+	.social-icons-with-cart .add-fav img, .social-icons-with-cart .add-cart img{
+		max-width: 30px;
+	}
+	.color {
+	  border-bottom: 1px solid #666;
+	  margin: 0 0 20px;
+	  padding: 0 0 20px;
+	}
+	.social-icons-with-cart:nth-of-type(2){
+		padding-bottom: 30px;
+	}
+	span.pro-name{
+		font-size: 14px;
+		width: 90px;
+	}
+	.pro-type-view, .product-full-detail p, span.pro-field select{
+		font-size: 16px;
+	}
+	.xskin-user-list-categories{
+		padding-bottom: 20px;
+		margin: 0;
+	}
+	.xskin-user-list-categories li a {
+	  font-size: 19px;
+	  height: 50px;
+	  line-height: 50px;
+	  padding: 0 15px;
+	}
+	.edit-pass .button{
+		margin-bottom: 15px;
+		font-size: 17px;
+	}
+	.edit-pass .button i{
+		font-size: 21px;
+	}
+	.invite-friend{
+		margin: 0 0 20px;
+	}
+	.invite-friend h4{
+		font-size: 20px;
+	}
+	.invite-friend h5{
+		font-size: 16px;
+	}
+	.share-code-to-friend input[type="text"]{
+		width: 45%;
+	}
+	ul.discount-in-dollar li{
+		margin: 0 8px;
+	}
+	.xskin-product-item .small-12, .xskin-product-design .medium-4, .xskin-enter-information-for-send-greeting form .field input, .xskin-enter-information-for-send-greeting form .text-field textarea{
+		font-size: 14px;
+		border: 1px solid #ccc;
+	}
+	.xskin-enter-information-for-send-greeting .actions input{
+		font-size: 18px;
+		height: 35px;
+	}
+	.range-of-precisely-design .design-collections{
+		padding-left: 0;
+	 }
+	 .design-collections, ul.xskin-collections li img{
+	 	width: 100%;
+	 }
+	 .shop-design-collection{
+	 	padding: 35px 0;
+	 }
+	 .customize-my-case h1, 
+	 .customize-my-case h2, 
+	 .shop-design-collection h1, 
+	 .shop-design-collection h2, 
+	 .range-of-precisely-design h1, 
+	 .range-of-precisely-design h2{
+	 	font-size: 35px;
+	 }
+	.temp-2-design h1{
+		font-size: 25px;
+	}
+	 .temp-2-design h2{
+	 	font-size: 20px;
+	 	margin: 0;
+	 }
+	 .temp-2-design a.button {
+	  font-size: 14px;
+	  height: 25px;
+	  line-height: 25px;
+	  margin-top: 5px;
+	  max-width: 150px;
+	}
+	 .customize-my-case{
+	 	
+	 	left: 0;
+	 	width: 100%;
+	 	text-align: center;
+	 }
+	 .custom-iphone-case{
+	 	width: 100%;
+	 	overflow: hidden;
+	 }
+	 .custom-iphone-case > img {
+	  max-width: 767px;
+	}
+	.xskin-panel, .xskin-your-design, .free-shipping-need-help, .xskin-user-profile-data .iphone-6{
+		width: 100%;
+	}
+	.free-shipping-need-help{
+		position: relative;
+		margin: 20px 0 0;
+	}
+	.free-shipping-need-help a{
+		width: 100%;
+		display: inline-block;
+		text-align: center;
+	}
+	.xskin-your-design img {
+	  width: 45%;
+	}
+	.xskin-user-profile-data table th, 
+	.xskin-user-profile-data table tr, 
+	.xskin-user-profile-data table td{
+		padding: 5px;
+	}
+	.xskin-user-profile-data table tr td{
+		font-size: 14px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	ul.xskin-collections li,
+	ul.xskin-collections li:nth-child(4n+4),
+	ul.xskin-collections li:nth-child(3n+3){
+		width: 46%;
+		margin: 10px 2%;
+	}
+	ul.xskin-social-media-icons li,
+	ul.xskin-social-media-icons li:nth-child(4n+4),
+	ul.xskin-social-media-icons li:nth-child(3n+3),
+	ul.xskin-social-media-icons li:nth-child(2n+2){
+		width: auto;
+		margin: 2px 0;
+		display: inline-block;
+		float: none;
+	}
+	ul.xskin-social-media-icons li img{
+		max-width: 13px;
+	}
+	.tooltip{
+		max-width: 100px;
+	}
+	.xskin-save-design{
+		width: 100%;
+		position: relative;
+	}
+	.tabs-content section {
+	  max-height: 100%;
+	}
+	.pic-library .your-case-color, .pic-library .xskin-value{
+		font-size: 19px;
+	}
+	.world-currency > li{
+		text-align: left;
+	}
+	.world-currency > li a{
+		font-size: 13px;
+	}
+	#xskin-currencyModal {
+	  left: 0;
+	  margin: 0 auto;
+	  max-width: 300px;
+	  right: 0;
+	  min-height: auto;
+	}
+	.sign-in-forget-pass input[type="checkbox"] + label{
+		font-size: 15px;
+		vertical-align: inherit;
+	}
+	.xskin-user-profile-data{
+		width: 95%;
+		margin: 15px auto;
+		display: block;
+	}
+	.xskin-apple-watches .iphone-6{
+		border: 1px #ddd solid;
+	}
+}
+@media (max-width: 480px){
+	.xskin-filter-wrap .small-6{
+		width: 100%;
+	}
+	.xskin-filter-wrap.all-products .small-6{
+		width: 50%;
+	}
+	.xskin-case-type{
+		margin: 0 1px;
+	}
+	.case-quality{
+		text-align: left;
+		min-width: 143px;
+	}
+	#drop3.case-quality{
+		min-width: 100%;
+	}
+	.xskin-case-type .case-quality li a{
+		font-size: 12px;
+		padding: 6px 10px;
+	}
+	.xskin-case-type button.select-case-type{
+		margin: 0 0 10px;
+	}
+	.next-prev{
+		float: left;
+	}
+	.next-prev a{
+		margin: 0 5px 0 0;
+		padding: 0 15px;
+	}
+}
+@media (max-width: 360px){
+	.iphone-6.mobile-view{
+		width: 100%;
+		float: none;
+	}
+/*	.xskin-product-item .small-12, .xskin-product-design .medium-4, .xskin-enter-information-for-send-greeting form .field, .xskin-enter-information-for-send-greeting form .text-field{
+		width: 100%;
+	}*/
+	.share-code-to-friend input[type="text"]{
+		width: 100%;
+		margin: 0 0 10px;
+	}
+	.share-code-to-friend.brdr{
+		margin: 20px 0 25px;
+	}
+	.share-code-to-friend input[type="submit"]{
+		border-radius: 5px;
+	}
+	.invite-via-facebook-twitter{
+		margin-right: 10px;
+		margin-left: 0;
+	}
+	.promotion h5{
+		font-size: 17px;
+	}
+	.promotion > li .large-9, .promotion > li .large-3, .promotion-expired span, .promotion-expired a{
+		width: 100%;
+		display: inline-block;
+		text-align: center;
+	}
+	.xskin-apple-watches .medium-3{
+		width: 100%;
+	}
+}

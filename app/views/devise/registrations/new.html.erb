@@ -1,0 +1,49 @@
+<div class="xskin-login-signup">
+<div class="row">
+    <div class="login-signup-to-xskin">
+      <h1>SIGNUP to <span>XSKIN</span></h1>
+      <div class="xskin-login-section">
+
+      <div class="xskin-login-top-section">
+        <div class="xskin-login-with-facebook">
+          <a href="<%= user_omniauth_authorize_path('facebook') %>"><span class="login-icon"><i class="fa fa-facebook"></i></span> <span class="log-in">With <strong>Facebook</strong></span></a>
+        </div>
+        <!-- facebook close from here -->
+        </div>
+        <!-- facebook or instagram close from here -->
+        <div class="clearfix"></div>
+
+        <div class="xskin-login-form">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= devise_error_messages! %>
+            <div class="field">
+              <%= f.email_field :email, autofocus: true,:placeholder => "Email" %>
+            </div>
+            <div class="field">
+              <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "off", :placeholder=>"Password" %>
+            </div>
+            <div class="field">
+    <%= f.password_field :password_confirmation, autocomplete: "off", :placeholder => "Confirm Password"%>
+  </div>
+            <div class="field sign-in-forget-pass">
+
+            <%= f.submit "Sign Up",:class=>"button" %> 
+
+            </div>
+
+            <div class="medium-6 left text-left">
+              <a class="back-or-sign-up" href="<%=demo_path %>"><i class="fa fa-long-arrow-left"></i> Back to Home</a>
+            </div>
+            <div class="medium-6 right text-right">
+              <a class="back-or-sign-up" href="<%=new_user_session_path %>"><i class="show-for-small-only fa fa-long-arrow-left"></i> Member Log-in <i class="fa fa-long-arrow-right hide-for-small-only"></i></a>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+<% render "devise/shared/links" %>
